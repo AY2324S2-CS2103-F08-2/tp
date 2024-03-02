@@ -3,13 +3,11 @@
   "pages": [
     {
       "src": "AboutUs.md",
-      "title": "About Us",
       "headings": {
-        "about-us": "About Us",
         "project-team": "Project team",
         "john-doe": "John Doe",
         "jane-doe": "Jane Doe",
-        "johnny-doe": "Johnny Doe",
+        "jerome-chua": "Jerome Chua",
         "jean-doe": "Jean Doe",
         "james-doe": "James Doe"
       },
@@ -132,6 +130,14 @@
       "title": "",
       "headings": {
         "addressbook-level-3": "AddressBook Level-3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/jerome-j.md",
+      "title": "Jerome-j's Project Portfolio Page",
+      "headings": {
+        "jerome-j-s-project-portfolio-page": "Jerome-j's Project Portfolio Page"
       },
       "headingKeywords": {}
     },
