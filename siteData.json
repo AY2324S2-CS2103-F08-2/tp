@@ -8,7 +8,7 @@
         "john-doe": "John Doe",
         "jane-doe": "Jane Doe",
         "jerome-chua": "Jerome Chua",
-        "jean-doe": "Jean Doe",
+        "caitlyn-tang": "Caitlyn Tang",
         "james-doe": "James Doe"
       },
       "headingKeywords": {}
@@ -130,6 +130,14 @@
       "title": "",
       "headings": {
         "cognicare": "CogniCare"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/caitlyntang.md",
+      "title": "Caitlyn's Project Portfolio Page",
+      "headings": {
+        "caitlyn-s-project-portfolio-page": "Caitlyn's Project Portfolio Page"
       },
       "headingKeywords": {}
     },
