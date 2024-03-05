@@ -9,7 +9,7 @@
         "jane-doe": "Jane Doe",
         "jerome-chua": "Jerome Chua",
         "caitlyn-tang": "Caitlyn Tang",
-        "james-doe": "James Doe"
+        "tan-khang-hou": "Tan Khang Hou"
       },
       "headingKeywords": {}
     },
@@ -154,6 +154,14 @@
       "title": "John Doe's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/tankh99.md",
+      "title": "Khang Hou's Project Portfolio Page",
+      "headings": {
+        "khang-hou-s-project-portfolio-page": "Khang Hou's Project Portfolio Page"
       },
       "headingKeywords": {}
     },
