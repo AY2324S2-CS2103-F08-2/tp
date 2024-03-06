@@ -35,7 +35,7 @@ with(this){return _c('ul',[_c('li',[_v("Role: Team Lead")]),_v(" "),_c('li',[_v(
 with(this){return _c('h3',{attrs:{"id":"jerome-chua"}},[_v("Jerome Chua"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#jerome-chua","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_v("[[github]("),_c('a',{attrs:{"href":"http://github.com/Jerome-j"}},[_v("http://github.com/Jerome-j")]),_v("] ["),_c('a',{attrs:{"href":"/tp/team/jerome-j.html"}},[_v("portfolio")]),_v("]")])}
+with(this){return _c('p',[_v("["),_c('a',{attrs:{"href":"http://github.com/Jerome-j"}},[_v("github")]),_v("] ["),_c('a',{attrs:{"href":"/tp/team/jerome-j.html"}},[_v("portfolio")]),_v("]")])}
 },function anonymous(
 ) {
 with(this){return _c('ul',[_c('li',[_v("Role: Developer")]),_v(" "),_c('li',[_v("Responsibilities: Integration")])])}
@@ -59,6 +59,6 @@ with(this){return _c('p',[_v("["),_c('a',{attrs:{"href":"http://github.com/tankh
 with(this){return _c('ul',[_c('li',[_v("Role: Developer")]),_v(" "),_c('li',[_v("Responsibilities: Code quality")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.3.0")]),_v(", generated on Wed, 6 Mar 2024, 18:19:27 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.3.0")]),_v(", generated on Wed, 6 Mar 2024, 20:02:32 GMT+8]")])])])}
 }];
   
