@@ -59,6 +59,6 @@ with(this){return _c('p',[_v("["),_c('a',{attrs:{"href":"http://github.com/tankh
 with(this){return _c('ul',[_c('li',[_v("Role: Developer")]),_v(" "),_c('li',[_v("Responsibilities: Code quality")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.3.0")]),_v(", generated on Wed, 6 Mar 2024, 6:58:50 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.3.0")]),_v(", generated on Wed, 6 Mar 2024, 12:34:17 GMT+8]")])])])}
 }];
   
