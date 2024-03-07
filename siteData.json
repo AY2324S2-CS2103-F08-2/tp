@@ -3,11 +3,13 @@
   "pages": [
     {
       "src": "AboutUs.md",
+      "title": "About Us",
       "headings": {
         "project-team": "Project team",
         "john-doe": "John Doe",
         "jane-doe": "Jane Doe",
         "jerome-chua": "Jerome Chua",
+        "nguyen-xuan-nam": "Nguyen Xuan Nam",
         "caitlyn-tang": "Caitlyn Tang",
         "tan-khang-hou": "Tan Khang Hou"
       },
@@ -162,6 +164,14 @@
       "title": "Khang Hou's Project Portfolio Page",
       "headings": {
         "khang-hou-s-project-portfolio-page": "Khang Hou's Project Portfolio Page"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/vnnamng.md",
+      "title": "vnnamng's Project Portfolio Page",
+      "headings": {
+        "vnnamng-s-project-portfolio-page": "vnnamng's Project Portfolio Page"
       },
       "headingKeywords": {}
     },
