@@ -3,6 +3,7 @@ package seedu.address.logic;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -48,7 +49,10 @@ public class LogicManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
-        Command command = addressBookParser.parseCommand(commandText);
+
+        List<Person> filteredPatients = this.getFilteredPersonList();
+
+        Command command = addressBookParser.parseCommand(commandText, filteredPatients);
         commandResult = command.execute(model);
 
         try {

@@ -12,14 +12,16 @@ import seedu.address.logic.commands.ListAppointmentCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.appointment.Appointment;
 import seedu.address.model.appointment.AppointmentContainsPatientIdPredicate;
+import seedu.address.model.appointment.AppointmentContainsPatientNamePredicate;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
 
 /**
  * Parses input arguments and creates a new ListCommand object
  */
 public class ListAppointmentCommandParser implements Parser<ListAppointmentCommand> {
     @Override
-    public ListAppointmentCommand parse(String args) throws ParseException {
+    public ListAppointmentCommand parse(String args, List<Person> patients) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, CliSyntax.PREFIX_NAME, CliSyntax.PREFIX_STUDENT_ID);
 
@@ -38,8 +40,11 @@ public class ListAppointmentCommandParser implements Parser<ListAppointmentComma
 
         // All these criterias are OR not AND
         if (argMultimap.getValue(CliSyntax.PREFIX_NAME).isPresent()) {
-//            Name name = ParserUtil.parseName(argMultimap.getValue(CliSyntax.PREFIX_NAME).get());
-//            predicates.add(new AppointmentContainsPatientIdPredicate(Collections.singletonList(name.fullName)));
+            Name name = ParserUtil.parseName(argMultimap.getValue(CliSyntax.PREFIX_NAME).get());
+            predicates.add(new AppointmentContainsPatientNamePredicate(
+                    Collections.singletonList(name.fullName),
+                    patients
+            ));
             //TODO: Implement query appointment by name
             System.out.println("Hello boss");
         }
@@ -55,6 +60,11 @@ public class ListAppointmentCommandParser implements Parser<ListAppointmentComma
                 .reduce(p -> true, Predicate::and);
 
         return new ListAppointmentCommand(combinedPredicate);
+    }
+
+    @Override
+    public ListAppointmentCommand parse(String userInput) throws ParseException {
+        return null;
     }
 
 }
