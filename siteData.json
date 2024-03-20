@@ -103,7 +103,6 @@
     },
     {
       "src": "UserGuide.md",
-      "title": "User Guide",
       "headings": {
         "cognicare-user-guide": "CogniCare User Guide",
         "quick-start": "Quick start",
