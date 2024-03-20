@@ -1,12 +1,10 @@
 package seedu.address.logic.parser;
 
+import java.util.List;
+
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Person;
-
-import java.util.List;
-
-
 /**
  * Represents a Parser that is able to parse user input into a {@code Command} of type {@code T}.
  */

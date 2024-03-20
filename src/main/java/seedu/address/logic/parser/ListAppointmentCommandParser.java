@@ -54,7 +54,8 @@ public class ListAppointmentCommandParser implements Parser<ListAppointmentComma
         }
 
         if (argMultimap.getValue(CliSyntax.PREFIX_PATIENT_ID).isPresent()) {
-            int studentId = ParserUtil.parseIndex(argMultimap.getValue(CliSyntax.PREFIX_PATIENT_ID).get()).getOneBased();
+            int studentId = ParserUtil.parseIndex(argMultimap.getValue(CliSyntax.PREFIX_PATIENT_ID)
+                                                          .get()).getOneBased();
             predicates.add(
                     new AppointmentContainsPatientIdPredicate(Collections.singletonList(String.valueOf(studentId)))
             );
