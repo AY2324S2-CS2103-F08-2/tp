@@ -5,19 +5,19 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 
-CogniCare *-right-> "1" UniquePersonList
+CogniCare *-right-> "1" UniquePatientList
 CogniCare *-right-> "1" UniqueTagList
-UniqueAliasList -[hidden]down- UniquePersonList
-UniqueAliasList -[hidden]down- UniquePersonList
+UniqueAliasList -[hidden]down- UniquePatientList
+UniqueAliasList -[hidden]down- UniquePatientList
 
 
 UniqueAliasList -right-> "*" Tag
-UniquePersonList -right-> Person
+UniquePatientList -right-> Patient
 
-Person -up-> "0 .. *" Tag
-Person "1" *--> "1" Name
-Person "1" *--> "1" Phone
-Person *--> "Email Address"
-Person "0" *--> "1" studentId
+Patient -up-> "0 .. *" Tag
+Patient "1" *--> "1" Name
+Patient "1" *--> "1" Phone
+Patient *--> "Email Address"
+Patient "0" *--> "1" studentId
 
 @enduml
