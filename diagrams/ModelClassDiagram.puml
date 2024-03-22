@@ -13,10 +13,6 @@ Class AddressBook
 Class ModelManager
 Class UserPrefs
 
-Class AppointmentList
-Class Appointment
-
-Class UniquePersonList
 Class Person
 Class Address
 Class Email
@@ -24,10 +20,18 @@ Class Name
 Class Phone
 Class Tag
 
+Class UniquePersonList
+
+Class Appointment
+Class AppointmentList
+
 Class I #FFFFFF
 }
 
 Class HiddenOutside #FFFFFF
+Class HiddenOutsideOutside #FFFFFF
+Class HiddenInside #FFFFFF
+
 HiddenOutside ..> Model
 
 AddressBook .up.|> ReadOnlyAddressBook
