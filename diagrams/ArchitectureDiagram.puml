@@ -24,15 +24,15 @@ MainApp -[#grey]-> UIManager
 UIManager -right[#grey]-> MainWindow
 UIManager -down[#green]-> LogicManager
 
-LogicManager -down[#blue]-> ModelManager
-LogicManager -down[#blue]-> AddressBookParser
-LogicManager -right[#blue]-> StorageManager
-
 StorageManager -[STORAGE_COLOR].> ModelManager
 StorageManager .right[STORAGE_COLOR].>File
 
 AddressBookParser .right[LOGIC_COLOR_T2]-> ModelManager
 AddressBookParser .down[LOGIC_COLOR_T2]-> Command
+
+LogicManager -down[#blue]-> ModelManager
+LogicManager -down[#blue]-> AddressBookParser
+LogicManager -right[#blue]-> StorageManager
 
 ModelManager -[MODEL_COLOR_T1]-> Patients
 ModelManager -[MODEL_COLOR_T1]-> Appointments
