@@ -16,6 +16,7 @@ class EmailContainsKeywordPredicateTest {
 
     @Test
     public void equals() {
+        // This methods tests if the equal object is working well.
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
