@@ -349,6 +349,39 @@ There are a few key features that this module aims to implement
 **Alternatives considered**
 1. Using an array list instead of an observable list. However, the GUI was not able to accurately reflect the new appointment list when new appointments were added.
 
+======
+### Filter Appointment Feature
+
+The filter appointment feature allows users to filter appointments based on the date and time of the appointment.
+
+**Implementation**
+A predicate was used to filter the list of appointments based on the date and time of the appointment.
+Criteria for filtering appointments:
+- `StartDateTime` the appointment is before or at (<=) the specific `startDateTime` of the predicate
+- `EndDateTime` the appointment is after or at (>=) the specific `endDateTime` of the predicate
+There are a few methods used to interact with the filter appointment command.
+1. `FilterAppointmentCommand`
+   1. Defines filter appointment command key word and other error messages.
+   2. Validates the results of the `FilterAppointmentCommandParser#parse()`
+2. `FilterAppointmentCommandParser#parse()`
+   1. Parses the filter appointment commands, ensuring that all required parameters are present.
+   2. Check if the start date and time is before the end date and time.
+   3. Returns FilterAppointmentCommand
+3. `ParserUtil#parseDateTime()`
+   1. Parses the date and time of the appointment, ensuring correct format
+4. `ParserUtil#parseEndDateTime()` and `ParserUtil#parseStartDateTime()`
+   1. Parses the start and end date and time of the appointment, ensuring correct format from calling `ParserUtil#parseDateTime()`
+
+**Rationale for implementation**
+There are a few key features that this module aims to implement
+1. Allow users to filter appointments based on the date and time of the appointment.
+2. Ensure that the start date and time is before the end date and time.
+3. Ensure that the date and time of the appointment is in the correct format.
+4. Ensure that the date and time of the appointment is correctly parsed.
+
+**Alternatives considered**
+1. Smarter filtering based on the date and time of the appointment. However, this was not implemented as it was not necessary for the current scope of the project.
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
