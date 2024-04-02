@@ -78,4 +78,12 @@ public class DateTimeField implements Comparable<DateTimeField> {
     public LocalDateTime getDateTimeValue() {
         return value;
     }
+
+    public boolean isAfter(DateTimeField other) {
+        return this.compareTo(other) > 0;
+    }
+
+    public boolean isBefore(DateTimeField other) {
+        return this.compareTo(other) < 0;
+    }
 }
