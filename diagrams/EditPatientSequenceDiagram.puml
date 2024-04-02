@@ -1,0 +1,70 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":PatientListParser" as PatientListParser LOGIC_COLOR
+participant ":EditPatientCommandParser" as EditPatientCommandParser LOGIC_COLOR
+participant ":EditPersonDescriptor" as EditPersonDescriptor LOGIC_COLOR
+participant ":EditPatientCommand" as EditPatientCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+note right of LogicManager : The edit of student is done via the studentId, \nwhich is a integer value greater than or equal to 1.
+[-> LogicManager : execute("edit"p + "studentId" + " n/Jerome p/123 e/gmail.com a/depression")
+activate LogicManager
+
+LogicManager -> PatientListParser : parseCommand("editp" + "studentId" + arguments)
+activate PatientListParser
+
+create EditPatientCommandParser
+PatientListParser -> EditPatientCommandParser
+activate EditPatientCommandParser
+
+EditPatientCommandParser --> PatientListParser
+deactivate EditPatientCommandParser
+
+PatientListParser -> EditPatientCommandParser : parse(arguments)
+activate EditPatientCommandParser
+
+create EditPersonDescriptor
+note right of EditPersonDescriptor : Methods in EditPersonDescriptor such as setName and\n setPhone may be used to create a defensive copy \nof the patient that is to be updated.
+EditPatientCommandParser -> EditPersonDescriptor : new EditPersonDescriptor()
+activate EditPersonDescriptor
+EditPersonDescriptor -> EditPatientCommandParser : setup with parsed attributes
+
+deactivate EditPersonDescriptor
+
+' Now, passing EditPersonDescriptor and studentIndex to EditPatientCommand
+create EditPatientCommand
+EditPatientCommandParser -> EditPatientCommand : new EditPatientCommand(studentIndex, editPersonDescriptor)
+activate EditPatientCommand
+EditPatientCommand --> EditPatientCommandParser
+deactivate EditPatientCommand
+
+EditPatientCommandParser --> PatientListParser : return
+deactivate EditPatientCommandParser
+
+PatientListParser --> LogicManager : d
+deactivate PatientListParser
+
+LogicManager -> EditPatientCommand : execute
+activate EditPatientCommand
+
+EditPatientCommand -> Model : updateFilteredPersonList
+activate Model
+
+Model --> EditPatientCommand
+deactivate Model
+
+EditPatientCommand --> LogicManager : command success
+deactivate EditPatientCommand
+
+[<--LogicManager : command successful
+deactivate LogicManager
+@enduml
