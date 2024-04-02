@@ -6,22 +6,25 @@ import java.util.function.Predicate;
  * Tests that a {@code Appointment}'s {@code startDateTime} and {@code endDateTime} matches the date times given.
  */
 public class FilterAppointmentPredicate implements Predicate<Appointment> {
-    private final StartDateTime startDateTime;
-    private final EndDateTime endDateTime;
+    private final StartDateTime lowerBoundDateTime;
+    private final EndDateTime upperBoundDateTime;
 
     /**
      * Finds appointment based on start and end date times.
-     * @param startDateTime target start date time.
-     * @param endDateTime target end date time.
+     * @param lowerBoundDateTime target start date time.
+     * @param upperBoundDateTime target end date time.
      */
-    public FilterAppointmentPredicate(StartDateTime startDateTime, EndDateTime endDateTime) {
-        this.startDateTime = startDateTime;
-        this.endDateTime = endDateTime;
+    public FilterAppointmentPredicate(StartDateTime lowerBoundDateTime, EndDateTime upperBoundDateTime) {
+        this.lowerBoundDateTime = lowerBoundDateTime;
+        this.upperBoundDateTime = upperBoundDateTime;
     }
 
     @Override
     public boolean test(Appointment appointment) {
-        return startDateTime.compareTo(appointment.getStartDateTime()) <= 0
-                && endDateTime.compareTo(appointment.getEndDateTime()) >= 0;
+        // Notice the ! before the whole statement
+        return !((lowerBoundDateTime.isAfter(appointment.getStartDateTime())
+                && lowerBoundDateTime.isAfter(appointment.getEndDateTime()))
+                || (upperBoundDateTime.isBefore(appointment.getStartDateTime())
+                && upperBoundDateTime.isBefore(appointment.getEndDateTime())));
     }
 }
