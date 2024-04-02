@@ -5,16 +5,15 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 Package Model as ModelPackage <<Rectangle>>{
-Class "<<interface>>\nReadOnlyAddressBook" as ReadOnlyAddressBook
+Class "<<interface>>\nReadOnlyPatientList" as ReadOnlyPatientList
 Class "<<interface>>\nReadOnlyUserPrefs" as ReadOnlyUserPrefs
 Class "<<interface>>\nModel" as Model
 Class "<<interface>>\nReadOnlyAppointmentList" as ReadOnlyAppointmentList
-Class AddressBook
+Class PatientList
 Class ModelManager
 Class UserPrefs
 
 Class Person
-Class Address
 Class Email
 Class Name
 Class Phone
@@ -25,43 +24,65 @@ Class UniquePersonList
 Class Appointment
 Class AppointmentList
 
+Class DataTimeField
+Class StartDateTime
+Class EndDateTime
+Class AppointmentDescription
+Class PatientId
+Class FeedbackScore
+Class HasAttended
+
 Class I #FFFFFF
+Class F #FFFFFF
 }
 
 Class HiddenOutside #FFFFFF
-Class HiddenOutsideOutside #FFFFFF
-Class HiddenInside #FFFFFF
+
 
 HiddenOutside ..> Model
 
-AddressBook .up.|> ReadOnlyAddressBook
+PatientList .up.|> ReadOnlyPatientList
 AppointmentList .up.|> ReadOnlyAppointmentList
 
 ModelManager .up.|> Model
 Model .down.> ReadOnlyUserPrefs
-Model .right.> ReadOnlyAddressBook
+Model .right.> ReadOnlyPatientList
 Model .left.> ReadOnlyAppointmentList
-ModelManager -left-> "1" AddressBook
-ModelManager -right-> "1" UserPrefs
-ModelManager -right-> "1" AppointmentList
+ModelManager -left-> "1" PatientList
+ModelManager -down-> "1" UserPrefs
+ModelManager -down-> "1" AppointmentList
 UserPrefs .up.|> ReadOnlyUserPrefs
 
-AddressBook *--> "1" UniquePersonList
+PatientList *--> "1" UniquePersonList
 UniquePersonList --> "~* all" Person
 Person *--> Name
 Person *--> Phone
 Person *--> Email
-Person *--> Address
 Person *--> "*" Tag
 
 AppointmentList *--> "*" Appointment
+Appointment *--> StartDateTime
+Appointment *--> EndDateTime
+StartDateTime -down-|> DataTimeField
+EndDateTime -down-|> DataTimeField
+
+Appointment *-left-> AppointmentDescription
+Appointment *-left-> PatientId
+Appointment *-left-> FeedbackScore
+Appointment *-left-> HasAttended
+
+AppointmentDescription -[hidden]down-|> FeedbackScore
+FeedbackScore -[hidden]down-|> HasAttended
+HasAttended -[hidden]down-|> PatientId
+
+
+
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
 
 Name -[hidden]right-> Phone
-Phone -[hidden]right-> Address
-Address -[hidden]right-> Email
+Phone -[hidden]right-> Email
 
 ModelManager --> "~* filtered" Person
 @enduml
