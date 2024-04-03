@@ -19,12 +19,18 @@ public class FilterAppointmentPredicate implements Predicate<Appointment> {
         this.upperBoundDateTime = upperBoundDateTime;
     }
 
+    private boolean isAppointmentFullyBeforeLowerBound(Appointment appointment) {
+        return appointment.getEndDateTime().isBefore(lowerBoundDateTime);
+    }
+
+    private boolean isAppointmentFullyAfterUpperBound(Appointment appointment) {
+        return appointment.getStartDateTime().isAfter(upperBoundDateTime);
+    }
+
     @Override
     public boolean test(Appointment appointment) {
         // Notice the ! before the whole statement
-        return !((lowerBoundDateTime.isAfter(appointment.getStartDateTime())
-                && lowerBoundDateTime.isAfter(appointment.getEndDateTime()))
-                || (upperBoundDateTime.isBefore(appointment.getStartDateTime())
-                && upperBoundDateTime.isBefore(appointment.getEndDateTime())));
+        return !isAppointmentFullyBeforeLowerBound(appointment)
+                && !isAppointmentFullyAfterUpperBound(appointment);
     }
 }
