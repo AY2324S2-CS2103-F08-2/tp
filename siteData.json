@@ -128,6 +128,7 @@
         "adding-a-patient-addp": "Adding a patient: addp",
         "listing-all-patients-queryp": "Listing all patients : queryp",
         "listing-selected-patients-that-meets-specified-criterion-criteria-queryp": "Listing selected patients that meets specified criterion / criteria : queryp",
+        "viewing-statistics-of-tagged-information": "Viewing statistics of tagged information",
         "editing-a-patient-editp": "Editing a patient : editp",
         "deleting-a-patient-deletep": "Deleting a patient : deletep",
         "adding-an-appointment-adda": "Adding an appointment: adda",
