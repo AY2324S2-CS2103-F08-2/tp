@@ -25,7 +25,7 @@ public class FilterAppointmentCommand extends Command {
             + CliSyntax.PREFIX_START_DATETIME + "START_DATETIME "
             + CliSyntax.PREFIX_END_DATETIME + "END_DATETIME\n"
             + "Example: " + COMMAND_WORD + " "
-            + CliSyntax.PREFIX_START_DATETIME + "2024-03-18 09:00"
+            + CliSyntax.PREFIX_START_DATETIME + "2024-03-18 09:00 "
             + CliSyntax.PREFIX_END_DATETIME + "2024-03-18 18:00";
 
     private final Predicate<Appointment> predicate;
