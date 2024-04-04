@@ -5,37 +5,32 @@
 !include style.puml
 
 Package " "<<Rectangle>>{
-    Class UIManager UI_COLOR
-    Class LogicManager LOGIC_COLOR
-    Class StorageManager STORAGE_COLOR
-    Class ModelManager MODEL_COLOR
-    Class AddressBookParser LOGIC_COLOR_T2
+    Class UI UI_COLOR
+    Class Logic LOGIC_COLOR
+    Class Storage STORAGE_COLOR
+    Class Model MODEL_COLOR
+    Class CommandParser LOGIC_COLOR_T2
     Class MainApp #grey
     Class MainWindow #grey
-    Class Patients MODEL_COLOR_T1
-    Class Appointments MODEL_COLOR_T1
     Class Command LOGIC_COLOR_T4
 }
 
 Class "<$user>" as User MODEL_COLOR_T2
 Class "<$documents>" as File UI_COLOR_T1
 
-MainApp -[#grey]-> UIManager
-UIManager -right[#grey]-> MainWindow
-UIManager -down[#green]-> LogicManager
+MainApp -[#grey]-> UI
+UI -right[#grey]-> MainWindow
+UI -down[#green]-> Logic
 
-StorageManager -[STORAGE_COLOR].> ModelManager
-StorageManager .right[STORAGE_COLOR].>File
+Storage -[STORAGE_COLOR].> Model
+Storage .right[STORAGE_COLOR].>File
 
-AddressBookParser .right[LOGIC_COLOR_T2]-> ModelManager
-AddressBookParser .down[LOGIC_COLOR_T2]-> Command
+CommandParser .right[LOGIC_COLOR_T2]-> Model
+CommandParser .down[LOGIC_COLOR_T2]-> Command
 
-LogicManager -down[#blue]-> ModelManager
-LogicManager -down[#blue]-> AddressBookParser
-LogicManager -right[#blue]-> StorageManager
-
-ModelManager -[MODEL_COLOR_T1]-> Patients
-ModelManager -[MODEL_COLOR_T1]-> Appointments
+Logic -down[#blue]-> Model
+Logic -down[#blue]-> CommandParser
+Logic -right[#blue]-> Storage
 
 User ..> MainApp
 @enduml
