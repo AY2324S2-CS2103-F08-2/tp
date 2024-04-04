@@ -132,7 +132,7 @@
         "deleting-a-patient-deletep": "Deleting a patient : deletep",
         "adding-an-appointment-adda": "Adding an appointment: adda",
         "listing-all-appointments-querya": "Listing all appointments: querya",
-        "filter-appointments-by-date-time-filterappointments": "Filter appointments by date time: filterappointments",
+        "filter-appointments-by-date-time-filter": "Filter appointments by date time: filter",
         "editing-an-appointments-edita": "Editing an appointments: edita",
         "deleting-an-appointment-deletea": "Deleting an appointment : deletea",
         "clearing-all-entries-clear": "Clearing all entries : clear",
