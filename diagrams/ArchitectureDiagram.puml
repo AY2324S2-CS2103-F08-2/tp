@@ -9,10 +9,9 @@ Package " "<<Rectangle>>{
     Class Logic LOGIC_COLOR
     Class Storage STORAGE_COLOR
     Class Model MODEL_COLOR
-    Class CommandParser LOGIC_COLOR_T2
     Class MainApp #grey
     Class MainWindow #grey
-    Class Command LOGIC_COLOR_T4
+    Class Parser LOGIC_COLOR_T2
 }
 
 Class "<$user>" as User MODEL_COLOR_T2
@@ -25,12 +24,12 @@ UI -down[#green]-> Logic
 Storage -[STORAGE_COLOR].> Model
 Storage .right[STORAGE_COLOR].>File
 
-CommandParser .right[LOGIC_COLOR_T2]-> Model
-CommandParser .down[LOGIC_COLOR_T2]-> Command
+' Command .right[LOGIC_COLOR_T2]-> Model
+Parser -right[LOGIC_COLOR_T2]-> Model
 
 Logic -down[#blue]-> Model
-Logic -down[#blue]-> CommandParser
 Logic -right[#blue]-> Storage
+Logic -down[#blue]-> Parser
 
 User ..> MainApp
 @enduml

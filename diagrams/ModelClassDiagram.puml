@@ -6,25 +6,24 @@ skinparam classBackgroundColor MODEL_COLOR
 
 Package Model as ModelPackage <<Rectangle>>{
 Class "<<interface>>\nReadOnlyPatientList" as ReadOnlyPatientList
-Class "<<interface>>\nReadOnlyUserPrefs" as ReadOnlyUserPrefs
 Class "<<interface>>\nModel" as Model
 Class "<<interface>>\nReadOnlyAppointmentList" as ReadOnlyAppointmentList
 Class PatientList
 Class ModelManager
-Class UserPrefs
 
-Class Person
+Class Patient
 Class Email
 Class Name
 Class Phone
 Class Tag
 
 Class UniquePersonList
+Class UniqueAppointmentList
 
 Class Appointment
 Class AppointmentList
 
-Class DataTimeField
+Class DateTimeField
 Class StartDateTime
 Class EndDateTime
 Class AppointmentDescription
@@ -44,45 +43,41 @@ HiddenOutside ..> Model
 PatientList .up.|> ReadOnlyPatientList
 AppointmentList .up.|> ReadOnlyAppointmentList
 
-ModelManager .up.|> Model
-Model .down.> ReadOnlyUserPrefs
 Model .right.> ReadOnlyPatientList
 Model .left.> ReadOnlyAppointmentList
-ModelManager -left-> "1" PatientList
-ModelManager -down-> "1" UserPrefs
+ModelManager .up.|> Model
+ModelManager -down-> "1" PatientList
 ModelManager -down-> "1" AppointmentList
-UserPrefs .up.|> ReadOnlyUserPrefs
 
 PatientList *--> "1" UniquePersonList
-UniquePersonList --> "~* all" Person
-Person *--> Name
-Person *--> Phone
-Person *--> Email
-Person *--> "*" Tag
+UniquePersonList -down-> "~* contains" Patient
+Patient *--> "1" Name
+Patient *--> "1" Phone
+Patient *--> "1" Email
+Patient *--> "*" Tag
 
-AppointmentList *--> "*" Appointment
-Appointment *--> StartDateTime
-Appointment *--> EndDateTime
-StartDateTime -down-|> DataTimeField
-EndDateTime -down-|> DataTimeField
+AppointmentList *-down-> "1" UniqueAppointmentList
+UniqueAppointmentList -down-> "*" Appointment
+Appointment *--> "1" StartDateTime
+Appointment *--> "1" EndDateTime
+StartDateTime -down-|> DateTimeField
+EndDateTime -down-|> DateTimeField
 
-Appointment *-left-> AppointmentDescription
-Appointment *-left-> PatientId
-Appointment *-left-> FeedbackScore
-Appointment *-left-> HasAttended
-
-AppointmentDescription -[hidden]down-|> FeedbackScore
-FeedbackScore -[hidden]down-|> HasAttended
-HasAttended -[hidden]down-|> PatientId
+Appointment *--> "1" AppointmentDescription
+Appointment *--> "1" PatientId
+Appointment *--> "0..1" FeedbackScore
+Appointment *--> "1" HasAttended
 
 
 
 
-Person -[hidden]up--> I
+
+Patient -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
 
 Name -[hidden]right-> Phone
 Phone -[hidden]right-> Email
 
-ModelManager --> "~* filtered" Person
+ModelManager ..> "filters/sorts" Patient
+ModelManager ..> "filters/sorts" Appointment
 @enduml

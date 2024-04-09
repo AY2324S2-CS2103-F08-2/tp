@@ -4,7 +4,7 @@ skinparam ArrowFontStyle plain
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant ":PatientListParser" as PatientListParser LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":EditPatientCommandParser" as EditPatientCommandParser LOGIC_COLOR
 participant ":EditPersonDescriptor" as EditPersonDescriptor LOGIC_COLOR
 participant ":EditPatientCommand" as EditPatientCommand LOGIC_COLOR
@@ -18,17 +18,17 @@ end box
 [-> LogicManager : execute("edit"p + "studentId" + " n/Jerome p/123 e/gmail.com a/depression")
 activate LogicManager
 
-LogicManager -> PatientListParser : parseCommand("editp" + "studentId" + arguments)
-activate PatientListParser
+LogicManager -> CommandParser : parseCommand("editp" + "studentId" + arguments)
+activate CommandParser
 
 create EditPatientCommandParser
-PatientListParser -> EditPatientCommandParser
+CommandParser -> EditPatientCommandParser
 activate EditPatientCommandParser
 
-EditPatientCommandParser --> PatientListParser
+EditPatientCommandParser --> CommandParser
 deactivate EditPatientCommandParser
 
-PatientListParser -> EditPatientCommandParser : parse(arguments)
+CommandParser -> EditPatientCommandParser : parse(arguments)
 activate EditPatientCommandParser
 
 create EditPersonDescriptor
@@ -46,11 +46,11 @@ activate EditPatientCommand
 EditPatientCommand --> EditPatientCommandParser
 deactivate EditPatientCommand
 
-EditPatientCommandParser --> PatientListParser : return
+EditPatientCommandParser --> CommandParser : return
 deactivate EditPatientCommandParser
 
-PatientListParser --> LogicManager : d
-deactivate PatientListParser
+CommandParser --> LogicManager : d
+deactivate CommandParser
 
 LogicManager -> EditPatientCommand : execute
 activate EditPatientCommand

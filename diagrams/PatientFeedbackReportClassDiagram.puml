@@ -1,0 +1,60 @@
+@startuml
+!include style.puml
+show members
+hide circle
+skinparam classAttributeIconSize 0
+skinparam Class {
+    FontColor #000000
+    BorderColor #000000
+    StereotypeFontColor #000000
+}
+
+title Patient Feedback Report Data Flow
+
+class PatientFeedbackReportList {
+    +generateReportList()
+    +getList()
+}
+
+class PatientFeedbackReport {
+    +getPatientId()
+    +getPatientName()
+    +getAvgFeedbackScore()
+}
+
+class Patient {
+    +getName(): Name
+}
+
+class Appointment {
+    +getFeedbackScore(): Integer
+}
+
+class Model {
+    +updateFilteredAppointmentList()
+    +getPatientFeedbackReportList()
+
+}
+
+class Logic {
+    +getPatientFeedbackReportList()
+}
+
+class ListPanel {
+
+}
+
+PatientFeedbackReport -->"1" Patient : contains
+PatientFeedbackReport -->"*" Appointment : contains
+
+PatientFeedbackReportList -->"*" PatientFeedbackReport
+
+Model -->"1" PatientFeedbackReportList
+
+Logic -->"1" Model
+
+ListPanel -[dashed]->"*" PatientFeedbackReport
+ListPanel --> "1" Logic
+
+
+@enduml

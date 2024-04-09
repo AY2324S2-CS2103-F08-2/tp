@@ -1,0 +1,11 @@
+@startuml
+
+:User presses down;
+if () then ([has next command])
+    :Increment command index;
+else ([else])
+endif
+:Get current command;
+stop
+
+@enduml

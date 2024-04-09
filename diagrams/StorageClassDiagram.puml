@@ -6,10 +6,10 @@ skinparam classBackgroundColor STORAGE_COLOR
 
 package Storage as StoragePackage {
 
-package "UserPrefs Storage" #F4F6F6{
-Class "<<interface>>\nUserPrefsStorage" as UserPrefsStorage
-Class JsonUserPrefsStorage
-}
+' package "UserPrefs Storage" #F4F6F6{
+' Class "<<interface>>\nUserPrefsStorage" as UserPrefsStorage
+' Class JsonUserPrefsStorage
+' }
 
 Class "<<interface>>\nStorage" as Storage
 Class StorageManager
@@ -18,7 +18,7 @@ package "PatientList Storage" #F4F6F6{
 Class "<<interface>>\nPatientListStorage" as PatientListStorage
 Class JsonPatientListStorage
 Class JsonSerializablePatientList
-Class JsonAdaptedPerson
+Class JsonAdaptedPatient
 Class JsonAdaptedTag
 }
 
@@ -33,19 +33,19 @@ Class HiddenOutside #FFFFFF
 HiddenOutside ..> Storage
 
 StorageManager .up.|> Storage
-StorageManager -down-> "1" UserPrefsStorage
+' StorageManager -down-> "1" UserPrefsStorage
 StorageManager -left-> "1" PatientListStorage
 StorageManager -right-> "1" AppointmentListStorage
 
-Storage --|> UserPrefsStorage
+' Storage --|> UserPrefsStorage
 Storage --|> PatientListStorage
 Storage --|> AppointmentListStorage
 
-JsonUserPrefsStorage .up.|> UserPrefsStorage
+' JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonPatientListStorage .up.|> PatientListStorage
 JsonPatientListStorage ..> JsonSerializablePatientList
-JsonSerializablePatientList --> "*" JsonAdaptedPerson
-JsonAdaptedPerson --> "*" JsonAdaptedTag
+JsonSerializablePatientList --> "*" JsonAdaptedPatient
+JsonAdaptedPatient --> "*" JsonAdaptedTag
 
 JsonAppointmentListStorage .up.|> AppointmentListStorage
 JsonAppointmentListStorage ..> JsonSerializableAppointmentList

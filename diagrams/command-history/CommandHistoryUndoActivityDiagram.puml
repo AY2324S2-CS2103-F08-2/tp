@@ -1,0 +1,12 @@
+@startuml
+
+:User presses up;
+if () then ([has previous command])
+    :Decrement command index;
+else ([else])
+    :Play sound;
+endif
+:Get current command;
+stop
+
+@enduml

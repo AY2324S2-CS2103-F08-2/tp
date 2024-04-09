@@ -4,7 +4,7 @@ skinparam ArrowFontStyle plain
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant ":PatientListParser" as PatientListParser LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":DeleteCommandParser" as DeleteCommandParser LOGIC_COLOR
 participant "d:DeleteCommand" as DeleteCommand LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
@@ -17,17 +17,17 @@ end box
 [-> LogicManager : execute("deletep 1")
 activate LogicManager
 
-LogicManager -> PatientListParser : parseCommand("deletep 1")
-activate PatientListParser
+LogicManager -> CommandParser : parseCommand("deletep 1")
+activate CommandParser
 
 create DeleteCommandParser
-PatientListParser -> DeleteCommandParser
+CommandParser -> DeleteCommandParser
 activate DeleteCommandParser
 
-DeleteCommandParser --> PatientListParser
+DeleteCommandParser --> CommandParser
 deactivate DeleteCommandParser
 
-PatientListParser -> DeleteCommandParser : parse("1")
+CommandParser -> DeleteCommandParser : parse("1")
 activate DeleteCommandParser
 
 create DeleteCommand
@@ -37,22 +37,26 @@ activate DeleteCommand
 DeleteCommand --> DeleteCommandParser :
 deactivate DeleteCommand
 
-DeleteCommandParser --> PatientListParser : d
+DeleteCommandParser --> CommandParser : d
 deactivate DeleteCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
-DeleteCommandParser -[hidden]-> PatientListParser
+DeleteCommandParser -[hidden]-> CommandParser
 destroy DeleteCommandParser
 
-PatientListParser --> LogicManager : d
-deactivate PatientListParser
+CommandParser --> LogicManager : d
+deactivate CommandParser
 
 LogicManager -> DeleteCommand : execute(m)
 activate DeleteCommand
 
-DeleteCommand -> Model : deletePatient(1)
+DeleteCommand -> Model : getFilteredPersonList()
 activate Model
-
-Model --> DeleteCommand
+DeleteCommand -> Model : getFilteredAppointmentList()
+DeleteCommand -> Model : getIdTracker()
+Model --> DeleteCommand: current running ID
+DeleteCommand -> Model : deletePerson(1)
+Model --> DeleteCommand: Optional.of(personToDelete)
+DeleteCommand -> Model : deleteAppointment()
 deactivate Model
 
 create CommandResult

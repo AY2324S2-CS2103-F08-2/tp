@@ -1,0 +1,41 @@
+@startuml
+!include <office/Users/user>
+!include ../style.puml
+skinparam ArrowFontStyle plain
+
+title Command history user flow
+
+box Command History LOGIC_COLOR_T1
+
+Participant "<$user>" as user MODEL_COLOR_T2
+Participant ":CommandBox" as cmdBox LOGIC_COLOR
+Participant "commandHistory:CommandHistory" as cmdHist LOGIC_COLOR
+' Participant ":AudioUtil" as audio LOGIC_COLOR
+
+end box
+
+user -> cmdBox: user enters a command
+activate cmdBox
+cmdBox -> cmdHist: addCommandToHistory(string)
+cmdHist --> cmdBox --
+deactivate cmdBox
+
+user -> cmdBox: user presses up arrow
+activate cmdBox
+cmdBox -> cmdHist: undo()
+cmdBox -> cmdHist: getCurrentCommand()
+cmdBox --> user --: previous command
+
+user -> cmdBox: user presses down arrow
+activate cmdBox
+cmdBox -> cmdHist: redo()
+cmdBox -> cmdHist: getCurrentCommand()
+cmdBox --> user --: next command
+
+user -> cmdBox: user presses down arrow
+activate cmdBox
+cmdBox -> cmdHist: redo()
+cmdBox -> cmdHist: getCurrentCommand()
+cmdBox --> user --: empty string
+
+@enduml

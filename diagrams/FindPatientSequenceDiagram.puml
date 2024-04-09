@@ -4,7 +4,7 @@ skinparam ArrowFontStyle plain
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant ":PatientListParser" as PatientListParser LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":ListCommandPatientParser" as ListCommandPatientParser LOGIC_COLOR
 participant ":ListCommandPatient" as ListCommandPatient LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
@@ -17,17 +17,17 @@ end box
 [-> LogicManager : execute("queryp" + " n/Jerome p/123 e/gmail.com a/depression")
 activate LogicManager
 
-LogicManager -> PatientListParser : parseCommand("queryp" + arguments)
-activate PatientListParser
+LogicManager -> CommandParser : parseCommand("queryp" + arguments)
+activate CommandParser
 
 create ListCommandPatientParser
-PatientListParser -> ListCommandPatientParser
+CommandParser -> ListCommandPatientParser
 activate ListCommandPatientParser
 
-ListCommandPatientParser --> PatientListParser
+ListCommandPatientParser --> CommandParser
 deactivate ListCommandPatientParser
 
-PatientListParser -> ListCommandPatientParser : parse(arguments)
+CommandParser -> ListCommandPatientParser : parse(arguments)
 activate ListCommandPatientParser
 
 create ListCommandPatient
@@ -38,14 +38,14 @@ activate ListCommandPatient
 ListCommandPatient --> ListCommandPatientParser :
 deactivate ListCommandPatient
 
-ListCommandPatientParser --> PatientListParser : d
+ListCommandPatientParser --> CommandParser : d
 deactivate ListCommandPatientParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
-ListCommandPatientParser -[hidden]-> PatientListParser
+ListCommandPatientParser -[hidden]-> CommandParser
 destroy ListCommandPatientParser
 
-PatientListParser --> LogicManager : d
-deactivate PatientListParser
+CommandParser --> LogicManager : d
+deactivate CommandParser
 
 LogicManager -> ListCommandPatient : execute(m)
 activate ListCommandPatient

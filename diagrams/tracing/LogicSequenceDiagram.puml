@@ -3,8 +3,8 @@
 skinparam ArrowFontStyle plain
 
 Participant ":LogicManager" as logic LOGIC_COLOR
-Participant ":CogniCareParser" as abp LOGIC_COLOR
-Participant ":EditCommandParser" as ecp LOGIC_COLOR
+Participant ":CommandParser" as abp LOGIC_COLOR
+Participant ":EditPatientCommandParser" as ecp LOGIC_COLOR
 Participant "command:EditCommand" as ec LOGIC_COLOR
 
 [-> logic : execute
