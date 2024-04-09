@@ -15,7 +15,6 @@ box Model MODEL_COLOR_T1
 participant "m:Model" as Model MODEL_COLOR
 end box
 
-note right of LogicManager : The edit of student is done via the studentId, \nwhich is a integer value greater than or equal to 1.
 [-> LogicManager : execute("edit"p + "studentId" + " n/Jerome p/123 e/gmail.com a/depression")
 activate LogicManager
 
@@ -64,6 +63,7 @@ deactivate Model
 
 EditPatientCommand --> LogicManager : command success
 deactivate EditPatientCommand
+destroy EditPatientCommand
 
 [<--LogicManager : command successful
 deactivate LogicManager
