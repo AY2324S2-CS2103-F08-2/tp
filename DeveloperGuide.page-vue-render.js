@@ -743,7 +743,7 @@ with(this){return _c('ul',[_c('li',[_v("The "),_c('code',{pre:true,attrs:{"class
 with(this){return _c('h2',{attrs:{"id":"7-planned-future-enhancements-beyond-v1-4"}},[_v("7. Planned Future Enhancements (Beyond "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("v1.4")]),_v(")"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#7-planned-future-enhancements-beyond-v1-4","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_v("Adding the ability to allow the counselor to secure the application - via a PIN Code feature, and encryption of the JSON file so that data loss does not result in the leakage of highly confidential medical data.")]),_v(" "),_c('li',[_v("Enhancing the graphical user interface to make it more user-friendly, i.e. more usage of the mouse as compared to the keyboard.")])])}
+with(this){return _c('ul',[_c('li',[_v("Adding the ability to allow the counselor to secure the application - via a PIN Code feature, and encryption of the JSON file so that data loss does not result in the leakage of highly confidential medical data.")]),_v(" "),_c('li',[_v("Enhancing the graphical user interface to make it more user-friendly, i.e. more usage of the mouse as compared to the keyboard.")]),_v(" "),_c('li',[_v("Enabling localisation support: In future more options will be available for users to set their preferred phone number validation types (i.e. US Phone format), Extended Character Set for Naming validation (so that Chinese / Vietnamese / Tamil, etc names can be supported).")]),_v(" "),_c('li',[_v("More commands to improve the counsellor workflow: As with a typical application, our primary objective is to concentrate collection of patient and appointment data. As we progress, we plan to introduce updates and increase more commands to derive new insights from the data. We appreciate your understanding and patience as we work towards working with the users and making these advanced features available.")])])}
 },function anonymous(
 ) {
 with(this){return _c('h2',{attrs:{"id":"8-learning-outcomes"}},[_v("8. Learning Outcomes"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#8-learning-outcomes","onclick":"event.stopPropagation()"}})])}
@@ -755,6 +755,6 @@ with(this){return _c('h2',{attrs:{"id":"acknowledgements"}},[_c('strong',[_v("Ac
 with(this){return _c('p',[_v("Code base adapted from "),_c('a',{attrs:{"href":"https://github.com/nus-cs2103-AY2324S2/tp"}},[_v("Address Book Level-3")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Wed, 10 Apr 2024, 9:44:04 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Wed, 10 Apr 2024, 12:19:55 GMT+8]")])])])}
 }];
   
