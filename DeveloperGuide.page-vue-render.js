@@ -212,7 +212,7 @@ with(this){return _c('ol',[_c('li',[_v("getCurrentCommand()\n"),_c('ol',[_c('li'
 with(this){return _c('ul',[_c('li',[_v("blue underline - denotes where the command index\nis pointing at.")]),_v(" "),_c('li',[_v("initial - the initial state of the command history")]),_v(" "),_c('li',[_v("exec - when any command is executed")]),_v(" "),_c('li',[_v("undo - decrements the index")]),_v(" "),_c('li',[_v("redo - increments the index")])])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('a',{attrs:{"href":"/tp/images/command-history/command-history-illustration.jpeg","target":"_self"}},[_c('img',{staticClass:"img-fluid",attrs:{"src":"/tp/images/command-history/command-history-illustration.jpeg","alt":""}})])])}
+with(this){return _c('p',[_c('img',{attrs:{"src":"/tp/images/command-history/command-history-illustration.jpeg","alt":"Command history illustration/","width":"480"}})])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Rationale for implementation")]),_v("\nThere are a few key features that this module aims to implement")])}
@@ -755,6 +755,6 @@ with(this){return _c('h2',{attrs:{"id":"acknowledgements"}},[_c('strong',[_v("Ac
 with(this){return _c('p',[_v("Code base adapted from "),_c('a',{attrs:{"href":"https://github.com/nus-cs2103-AY2324S2/tp"}},[_v("Address Book Level-3")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Wed, 10 Apr 2024, 8:52:13 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Wed, 10 Apr 2024, 9:44:04 GMT+8]")])])])}
 }];
   
