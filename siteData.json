@@ -54,6 +54,7 @@
         "command-history": "Command History",
         "add-appointment-feature": "Add Appointment Feature",
         "filter-appointment-feature": "Filter Appointment Feature",
+        "report-patient-feedback-feature": "Report Patient Feedback Feature",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
         "proposed-data-archiving": "[Proposed] Data archiving",
         "create-a-new-patient": "Create a new Patient",

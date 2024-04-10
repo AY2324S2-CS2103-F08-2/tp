@@ -1,0 +1,66 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box ReportFeedbackCommand LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
+participant ":ReportFeedbackCommandParser" as ReportFeedbackCommandParser LOGIC_COLOR
+' participant ":FilterAppointmentPredicate" as FilterAppointmentPredicate LOGIC_COLOR
+participant ":ReportFeedbackCommand" as ReportFeedbackCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant ":PatientReportFeedbackList" as PatientReportFeedbackList LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute(args)
+activate LogicManager
+LogicManager -> CommandParser : parseCommand(args)
+activate CommandParser
+
+create ReportFeedbackCommandParser
+CommandParser -> ReportFeedbackCommandParser: ReportFeedbackCommandParser()
+activate ReportFeedbackCommandParser
+
+ReportFeedbackCommandParser --> CommandParser
+deactivate ReportFeedbackCommandParser
+CommandParser -> ReportFeedbackCommandParser : parse(args)
+activate ReportFeedbackCommandParser
+
+create ReportFeedbackCommand
+ReportFeedbackCommandParser -> ReportFeedbackCommand: ReportFeedbackCommand()
+activate ReportFeedbackCommand
+ReportFeedbackCommand --> ReportFeedbackCommandParser
+deactivate ReportFeedbackCommand
+
+ReportFeedbackCommandParser --> CommandParser
+deactivate ReportFeedbackCommandParser
+destroy ReportFeedbackCommandParser
+
+CommandParser --> LogicManager
+deactivate CommandParser
+LogicManager -> ReportFeedbackCommand : execute(model)
+
+activate ReportFeedbackCommand
+ReportFeedbackCommand -> Model: updateFilteredAppointmentList(sdPred, edPred)
+activate Model
+Model -> PatientReportFeedbackList: generateReportList(patients, appointments)
+activate PatientReportFeedbackList
+deactivate PatientReportFeedbackList
+Model --> ReportFeedbackCommand
+deactivate Model
+create CommandResult
+ReportFeedbackCommand -> CommandResult : CommandResult()
+activate CommandResult
+CommandResult --> ReportFeedbackCommand
+deactivate CommandResult
+
+
+ReportFeedbackCommand --> LogicManager
+deactivate ReportFeedbackCommand
+destroy ReportFeedbackCommand
+[<-- LogicManager : successfully updated patient\n feedback report cards
+@enduml
