@@ -39,7 +39,7 @@
       "title": "Developer Guide",
       "headings": {
         "cognicare-developer-guide": "CogniCare Developer Guide",
-        "about-cognicare": "About CogniCare",
+        "acknowledgements": "Acknowledgements",
         "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
         "architecture": "Architecture",
@@ -78,8 +78,7 @@
         "6-4-editing-a-currently-created-patient": "6.4 Editing a currently created patient",
         "6-5-deleting-an-existing-patient": "6.5 Deleting an existing patient",
         "7-planned-future-enhancements-beyond-v1-4": "7. Planned Future Enhancements (Beyond v1.4)",
-        "8-learning-outcomes": "8. Learning Outcomes",
-        "acknowledgements": "Acknowledgements"
+        "8-learning-outcomes": "8. Learning Outcomes"
       },
       "headingKeywords": {}
     },
