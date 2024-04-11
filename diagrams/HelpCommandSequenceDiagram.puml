@@ -4,21 +4,23 @@ skinparam ArrowFontStyle plain
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant "CommandParser" as CommandParser LOGIC_COLOR
-participant ":HelpCommand" as HelpCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+
+participant ":CommandParser" as CommandParser LOGIC_COLOR
+participant "h:HelpCommand" as HelpCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 [-> LogicManager: execute(args)
 activate LogicManager
 LogicManager -> CommandParser: parse(args)
+
 activate CommandParser
 create HelpCommand
 CommandParser -> HelpCommand: HelpCommand()
 activate HelpCommand
 HelpCommand --> CommandParser
 deactivate HelpCommand
-LogicManager <-- CommandParser
+LogicManager <-- CommandParser: h
 deactivate CommandParser
 LogicManager -> HelpCommand: execute(model)
 activate HelpCommand
@@ -31,6 +33,6 @@ HelpCommand --> LogicManager
 deactivate HelpCommand
 destroy HelpCommand
 
-[<- LogicManager: Execute Command Successfully
+[<- LogicManager: Execute Command in GUI
 deactivate LogicManager
 @enduml

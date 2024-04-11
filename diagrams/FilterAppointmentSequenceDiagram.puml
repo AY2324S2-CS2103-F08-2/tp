@@ -15,9 +15,9 @@ box Model MODEL_COLOR_T1
 participant "m:Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("filter sd/2021-10-10 10:10 \n ed/2021-10-10 11:10")
+[-> LogicManager : execute("args")
 activate LogicManager
-LogicManager -> CommandParser : parse("filter sd/2021-10-10 10:10 \ned/2021-10-10 11:10")
+LogicManager -> CommandParser : parse("args")
 activate CommandParser
 
 create FilterAppointmentParser
@@ -26,28 +26,30 @@ activate FilterAppointmentParser
 
 FilterAppointmentParser --> CommandParser
 deactivate FilterAppointmentParser
-CommandParser -> FilterAppointmentParser : parse(arguments)
+CommandParser -> FilterAppointmentParser : parse("args")
 activate FilterAppointmentParser
 
 create FilterAppointmentPredicate
-FilterAppointmentParser -> FilterAppointmentPredicate: new FilterAppointmentPredicate()
+FilterAppointmentParser -> FilterAppointmentPredicate: FilterAppointmentPredicate()
 activate FilterAppointmentPredicate
-FilterAppointmentPredicate --> FilterAppointmentParser: pre
+FilterAppointmentPredicate --> FilterAppointmentParser
 deactivate FilterAppointmentPredicate
 
 create FilterAppointmentCommand
-FilterAppointmentParser -> FilterAppointmentCommand: new FilterAppointmentCommand()
+FilterAppointmentParser -> FilterAppointmentCommand:FilterAppointmentCommand(pre, sd, ed)
 activate FilterAppointmentCommand
-FilterAppointmentCommand --> FilterAppointmentParser: f
+FilterAppointmentCommand --> FilterAppointmentParser
 deactivate FilterAppointmentCommand
 
-FilterAppointmentParser --> CommandParser : f
+
+FilterAppointmentParser --> CommandParser: f
 deactivate FilterAppointmentParser
 destroy FilterAppointmentParser
 
-CommandParser --> LogicManager : f
+CommandParser --> LogicManager: f
 deactivate CommandParser
-LogicManager -> FilterAppointmentCommand : execute
+LogicManager -> FilterAppointmentCommand : execute(model)
+
 
 activate FilterAppointmentCommand
 FilterAppointmentCommand -> FilterAppointmentCommand: check valid datetime
@@ -57,17 +59,18 @@ activate Model
 Model --> FilterAppointmentCommand
 deactivate Model
 
-FilterAppointmentCommand -> CommandResult : new CommandResult()
+create CommandResult
+FilterAppointmentCommand -> CommandResult : CommandResult()
 activate CommandResult
-CommandResult --> FilterAppointmentCommand: r
+CommandResult --> FilterAppointmentCommand
 deactivate CommandResult
 
-FilterAppointmentCommand -> Model: getFilteredAppointmentList().size()
+FilterAppointmentCommand -> Model: getFilteredAppointmentList()
 activate Model
 Model --> FilterAppointmentCommand
 deactivate Model
 
-FilterAppointmentCommand --> LogicManager : r
+FilterAppointmentCommand --> LogicManager: r
 deactivate FilterAppointmentCommand
 destroy FilterAppointmentCommand
 [<-- LogicManager : successfully filter appointment
