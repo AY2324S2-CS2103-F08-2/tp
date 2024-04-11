@@ -5,7 +5,7 @@ skinparam ArrowFontStyle plain
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":CommandParser" as CommandParser LOGIC_COLOR
-participant ":ListCommandPatientParser" as ListCommandPatientParser LOGIC_COLOR
+participant ":ListPatientCommandParser" as ListPatientCommandParser LOGIC_COLOR
 participant ":ListCommandPatient" as ListCommandPatient LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
@@ -20,29 +20,29 @@ activate LogicManager
 LogicManager -> CommandParser : parseCommand("queryp" + arguments)
 activate CommandParser
 
-create ListCommandPatientParser
-CommandParser -> ListCommandPatientParser
-activate ListCommandPatientParser
+create ListPatientCommandParser
+CommandParser -> ListPatientCommandParser
+activate ListPatientCommandParser
 
-ListCommandPatientParser --> CommandParser
-deactivate ListCommandPatientParser
+ListPatientCommandParser --> CommandParser
+deactivate ListPatientCommandParser
 
-CommandParser -> ListCommandPatientParser : parse(arguments)
-activate ListCommandPatientParser
+CommandParser -> ListPatientCommandParser : parse(arguments)
+activate ListPatientCommandParser
 
 create ListCommandPatient
-ListCommandPatientParser -> ListCommandPatient :  new ListCommandPatient(combinedPredicate) with AND logic
-note right of ListCommandPatientParser : Details of how predicates are combined \nare simplified for the sake of diagramming.
+ListPatientCommandParser -> ListCommandPatient :  new ListCommandPatient(combinedPredicate) with AND logic
+note right of ListPatientCommandParser : Details of how predicates are combined \nare simplified for the sake of diagramming.
 activate ListCommandPatient
 
-ListCommandPatient --> ListCommandPatientParser :
+ListCommandPatient --> ListPatientCommandParser :
 deactivate ListCommandPatient
 
-ListCommandPatientParser --> CommandParser : d
-deactivate ListCommandPatientParser
+ListPatientCommandParser --> CommandParser : d
+deactivate ListPatientCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
-ListCommandPatientParser -[hidden]-> CommandParser
-destroy ListCommandPatientParser
+ListPatientCommandParser -[hidden]-> CommandParser
+destroy ListPatientCommandParser
 
 CommandParser --> LogicManager : d
 deactivate CommandParser
