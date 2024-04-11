@@ -11,7 +11,6 @@ Package " "<<Rectangle>>{
     Class Model MODEL_COLOR
     Class MainApp #grey
     Class MainWindow #grey
-    Class Parser LOGIC_COLOR_T2
 }
 
 Class "<$user>" as User MODEL_COLOR_T2
@@ -25,11 +24,9 @@ Storage -[STORAGE_COLOR].> Model
 Storage .right[STORAGE_COLOR].>File
 
 ' Command .right[LOGIC_COLOR_T2]-> Model
-Parser -right[LOGIC_COLOR_T2]-> Model
 
 Logic -down[#blue]-> Model
 Logic -right[#blue]-> Storage
-Logic -down[#blue]-> Parser
 
 User ..> MainApp
 @enduml

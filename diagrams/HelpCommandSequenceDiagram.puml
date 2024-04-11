@@ -4,30 +4,30 @@ skinparam ArrowFontStyle plain
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant ":PatientListParser" as PatientListParser LOGIC_COLOR
-participant "h:HelpCommand" as HelpCommand LOGIC_COLOR
-participant "r:CommandResult" as CommandResult LOGIC_COLOR
+participant "CommandParser" as CommandParser LOGIC_COLOR
+participant ":HelpCommand" as HelpCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
-[-> LogicManager: execute("help")
+[-> LogicManager: execute(args)
 activate LogicManager
-LogicManager -> PatientListParser: parse("help")
-activate PatientListParser
+LogicManager -> CommandParser: parse(args)
+activate CommandParser
 create HelpCommand
-PatientListParser -> HelpCommand: new HelpCommand()
+CommandParser -> HelpCommand: HelpCommand()
 activate HelpCommand
-HelpCommand --> PatientListParser: h
+HelpCommand --> CommandParser
 deactivate HelpCommand
-LogicManager <-- PatientListParser: h
-deactivate PatientListParser
-LogicManager -> HelpCommand: execute()
+LogicManager <-- CommandParser
+deactivate CommandParser
+LogicManager -> HelpCommand: execute(model)
 activate HelpCommand
 create CommandResult
-HelpCommand -> CommandResult: new CommandResult()
+HelpCommand -> CommandResult: CommandResult()
 activate CommandResult
 CommandResult --> HelpCommand
 deactivate CommandResult
-HelpCommand --> LogicManager: r
+HelpCommand --> LogicManager
 deactivate HelpCommand
 destroy HelpCommand
 

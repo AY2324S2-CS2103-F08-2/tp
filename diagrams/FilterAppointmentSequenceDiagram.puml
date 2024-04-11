@@ -4,7 +4,7 @@ skinparam ArrowFontStyle plain
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant ":PatientListParser" as PatientListParser LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":FilterAppointmentParser" as FilterAppointmentParser LOGIC_COLOR
 participant "pre:FilterAppointmentPredicate" as FilterAppointmentPredicate LOGIC_COLOR
 participant "f:FilterAppointmentCommand" as FilterAppointmentCommand LOGIC_COLOR
@@ -17,16 +17,16 @@ end box
 
 [-> LogicManager : execute("filter sd/2021-10-10 10:10 \n ed/2021-10-10 11:10")
 activate LogicManager
-LogicManager -> PatientListParser : parse("filter sd/2021-10-10 10:10 \ned/2021-10-10 11:10")
-activate PatientListParser
+LogicManager -> CommandParser : parse("filter sd/2021-10-10 10:10 \ned/2021-10-10 11:10")
+activate CommandParser
 
 create FilterAppointmentParser
-PatientListParser -> FilterAppointmentParser
+CommandParser -> FilterAppointmentParser
 activate FilterAppointmentParser
 
-FilterAppointmentParser --> PatientListParser
+FilterAppointmentParser --> CommandParser
 deactivate FilterAppointmentParser
-PatientListParser -> FilterAppointmentParser : parse(arguments)
+CommandParser -> FilterAppointmentParser : parse(arguments)
 activate FilterAppointmentParser
 
 create FilterAppointmentPredicate
@@ -41,12 +41,12 @@ activate FilterAppointmentCommand
 FilterAppointmentCommand --> FilterAppointmentParser: f
 deactivate FilterAppointmentCommand
 
-FilterAppointmentParser --> PatientListParser : f
+FilterAppointmentParser --> CommandParser : f
 deactivate FilterAppointmentParser
 destroy FilterAppointmentParser
 
-PatientListParser --> LogicManager : f
-deactivate PatientListParser
+CommandParser --> LogicManager : f
+deactivate CommandParser
 LogicManager -> FilterAppointmentCommand : execute
 
 activate FilterAppointmentCommand
