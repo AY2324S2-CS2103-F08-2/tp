@@ -40,7 +40,6 @@
       "headings": {
         "cognicare-developer-guide": "CogniCare Developer Guide",
         "about-cognicare": "About CogniCare",
-        "table-of-contents": "Table of Contents",
         "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
         "architecture": "Architecture",
@@ -101,7 +100,6 @@
       "title": "User Guide",
       "headings": {
         "cognicare-user-guide": "CogniCare User Guide",
-        "table-of-contents": "Table of Contents",
         "quick-start": "Quick start",
         "overview-of-gui": "Overview of GUI",
         "features": "Features",
