@@ -1,6 +1,6 @@
 @startuml
 
-:User presses down;
+:User presses DOWN;
 if () then ([has next command])
     :Increment command index;
 else ([else])

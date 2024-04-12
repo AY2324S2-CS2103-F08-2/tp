@@ -45,7 +45,7 @@ deactivate CommandParser
 LogicManager -> ReportFeedbackCommand : execute(model)
 
 activate ReportFeedbackCommand
-ReportFeedbackCommand -> Model: updateFilteredAppointmentList(sdPred, edPred)
+ReportFeedbackCommand -> Model: updateFilteredAppointmentList(pred)
 activate Model
 Model -> PatientReportFeedbackList: generateReportList(patients, appointments)
 activate PatientReportFeedbackList
@@ -62,5 +62,5 @@ deactivate CommandResult
 ReportFeedbackCommand --> LogicManager
 deactivate ReportFeedbackCommand
 destroy ReportFeedbackCommand
-[<-- LogicManager : successfully updated patient\n feedback report cards
+[<-- LogicManager : return filtered patient\n feedback reports
 @enduml

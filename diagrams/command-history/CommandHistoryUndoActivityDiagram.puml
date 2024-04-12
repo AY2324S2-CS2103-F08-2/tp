@@ -1,6 +1,6 @@
 @startuml
 
-:User presses up;
+:User presses UP;
 if () then ([has previous command])
     :Decrement command index;
 else ([else])

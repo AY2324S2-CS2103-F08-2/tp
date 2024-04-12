@@ -1,0 +1,63 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box ListAppointmentCommand LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
+participant ":ListAppointmentCommandParser" as ListAppointmentCommandParser LOGIC_COLOR
+' participant ":FilterAppointmentPredicate" as FilterAppointmentPredicate LOGIC_COLOR
+participant ":ListAppointmentCommand" as ListAppointmentCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant ":AppointmentList" as AppointmentList LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute(args)
+activate LogicManager
+LogicManager -> CommandParser : parseCommand(args)
+activate CommandParser
+
+create ListAppointmentCommandParser
+CommandParser -> ListAppointmentCommandParser: ListAppointmentCommandParser()
+activate ListAppointmentCommandParser
+
+ListAppointmentCommandParser --> CommandParser
+deactivate ListAppointmentCommandParser
+CommandParser -> ListAppointmentCommandParser : parse(args)
+activate ListAppointmentCommandParser
+
+create ListAppointmentCommand
+ListAppointmentCommandParser -> ListAppointmentCommand: ListAppointmentCommand()
+activate ListAppointmentCommand
+ListAppointmentCommand --> ListAppointmentCommandParser
+deactivate ListAppointmentCommand
+
+ListAppointmentCommandParser --> CommandParser
+deactivate ListAppointmentCommandParser
+destroy ListAppointmentCommandParser
+
+CommandParser --> LogicManager
+deactivate CommandParser
+LogicManager -> ListAppointmentCommand : execute(model)
+
+activate ListAppointmentCommand
+ListAppointmentCommand -> Model: updateFilteredAppointmentList(pred)
+activate Model
+Model --> ListAppointmentCommand
+deactivate Model
+create CommandResult
+ListAppointmentCommand -> CommandResult : CommandResult()
+activate CommandResult
+CommandResult --> ListAppointmentCommand
+deactivate CommandResult
+
+
+ListAppointmentCommand --> LogicManager
+deactivate ListAppointmentCommand
+destroy ListAppointmentCommand
+[<-- LogicManager : return filtered appointments
+@enduml

@@ -53,6 +53,7 @@
         "finding-contact-by-different-parameters": "Finding Contact by different parameters.",
         "command-history": "Command History",
         "add-appointment-feature": "Add Appointment Feature",
+        "query-appointment-feature": "Query Appointment Feature",
         "edit-appointment-feature": "Edit Appointment Feature",
         "delete-appointment-feature": "Delete Appointment Feature",
         "filter-appointment-feature": "Filter Appointment Feature"
