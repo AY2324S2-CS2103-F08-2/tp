@@ -1,28 +1,29 @@
 @startuml
 
 :User enters query command;
-if (no duplicate parameters) then ([no])
+if () then ([else] )
     :CogniCare throws a Parse Exception;
     :Error message is displayed;
 
-else ([yes])
-    if (is valid command format) then ([no])
+else ( [no duplicate parameters])
+    if () then ([else] )
         :CogniCare throws a Parse Exception;
         :Error message is displayed;
-    else ([yes])
-        if (prefix(es) are specified) then([no])
-            if(preamble is empty) then([no])
+    else ( [is valid command format])
+        if () then([else] )
+            if() then([else] )
                 :CogniCare throws a Parse Exception;
                 :Error message is displayed;
-            else([yes])
+            else( [preamble is empty])
                 :Return all appointments;
             endif
-        else([no])
-            if (prefix(es) are valid) then([no])
+        else( [prefix(es) are specified])
+            if () then([else] )
                 :CogniCare throws a Parse Exception;
                 :Error message is displayed;
-            else([yes])
-                :Filter list by prefix(es) \nand return filtered list;
+            else( [prefix(es) are valid])
+                :Filter list by prefix(es);
+                :Return filtered appointments;
             endif
         endif
     endif

@@ -1,31 +1,27 @@
 @startuml
-!include style.puml
-skinparam arrowThickness 1.1
-skinparam arrowColor LOGIC_COLOR_T4
-skinparam classBackgroundColor LOGIC_COLOR
 
 start
  :User enters the delete appointment command;
- if (missing appointment index?) then ([no])
+ if () then ([else] )
 
     : Return new DeleteAppointmentCommand;
-            if (is valid index?) then ([no])
+            if () then ([else] )
                 : CogniCare throws a Command Exception;
                 : Error message is displayed;
 
-            else ([yes])
+            else ( [valid index])
 
-                if (appointment is present) then ([no])
+                if () then ([else] )
                     : CogniCare throws a Command Exception;
                     : Error message is displayed;
-                else ([yes])
+                else ( [appointment is present])
                     : CogniCare deletes the appointment;
                     : Success message is displayed;
                 endif
 
             endif
 
- else ([yes])
+ else ( [missing appointment index])
     : CogniCare throws a Parse Exception;
     : Error message is displayed;
 

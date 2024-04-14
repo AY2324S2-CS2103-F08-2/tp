@@ -1,35 +1,31 @@
 @startuml
-!include style.puml
-skinparam arrowThickness 1.1
-skinparam arrowColor LOGIC_COLOR_T4
-skinparam classBackgroundColor LOGIC_COLOR
 
 start
  :User enters add appointment command;
- if (missing parameters?) then ([no])
+ if () then ([else] )
+    : CogniCare throws a Parse Exception;
+    : Error message is displayed;
 
-    if (all parameters entered correctly?) then ([no])
+ else ( [is valid command format] )
+
+    if () then ([else] )
         : CogniCare throws a Parse Exception;
         : Error message is displayed;
 
-    else ([yes])
+    else ( [prefix(es) are valid])
         :Create a new appointment object;
         :Return a new AddAppointmentCommand;
 
-        if (new appointment is valid?) then ([no])
+        if () then ([else] )
             :CogniCare throws a Command Exception;
             :Error message is displayed;
 
-        else ([yes])
+        else ( [new appointment is valid])
             :Appointment is added to CogniCare;
             :Success message is displayed;
         endif
 
     endif
-
- else ([yes])
-    : CogniCare throws a Parse Exception;
-    : Error message is displayed;
 
  endif
 stop
