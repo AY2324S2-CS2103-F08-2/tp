@@ -1,0 +1,75 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
+participant ":AddPatientCommandParser" as AddPatientCommandParser LOGIC_COLOR
+participant "patient:Patient" as Patient LOGIC_COLOR
+participant "e:AddPatientCommand" as AddPatientCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute(args)
+activate LogicManager
+
+
+LogicManager -> CommandParser : parseCommand(args)
+activate CommandParser
+
+create AddPatientCommandParser
+CommandParser -> AddPatientCommandParser
+activate AddPatientCommandParser
+
+AddPatientCommandParser --> CommandParser
+deactivate AddPatientCommandParser
+
+
+CommandParser -> AddPatientCommandParser : parse(args)
+activate AddPatientCommandParser
+
+create Patient
+AddPatientCommandParser -> Patient
+activate Patient
+Patient -> AddPatientCommandParser
+
+deactivate Patient
+create AddPatientCommand
+AddPatientCommandParser -> AddPatientCommand : new AddPatientCommand(patient)
+activate AddPatientCommand
+AddPatientCommand --> AddPatientCommandParser
+deactivate AddPatientCommand
+
+AddPatientCommandParser --> CommandParser : e
+deactivate AddPatientCommandParser
+
+CommandParser --> LogicManager : e
+deactivate CommandParser
+
+LogicManager -> AddPatientCommand : execute(model)
+activate AddPatientCommand
+
+
+
+AddPatientCommand -> Model : addPatient()
+
+
+
+
+create CommandResult
+AddPatientCommand -> CommandResult:  CommandResult()
+activate CommandResult
+CommandResult --> AddPatientCommand: r
+deactivate CommandResult
+
+AddPatientCommand --> LogicManager : r
+deactivate AddPatientCommand
+
+[<--LogicManager : command successful
+deactivate LogicManager
+@enduml

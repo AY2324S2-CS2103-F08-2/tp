@@ -15,11 +15,11 @@ box Model MODEL_COLOR_T1
 participant "m:Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("args")
+[-> LogicManager : execute(args)
 activate LogicManager
 
 
-LogicManager -> CommandParser : parseCommand("args")
+LogicManager -> CommandParser : parseCommand(args)
 activate CommandParser
 
 create EditAppointmentCommandParser
@@ -34,7 +34,7 @@ CommandParser -> EditAppointmentCommandParser : parse(args)
 activate EditAppointmentCommandParser
 
 create EditAppointmentDescriptor
-EditAppointmentCommandParser -> EditAppointmentDescriptor :  EditPersonDescriptor()
+EditAppointmentCommandParser -> EditAppointmentDescriptor :  EditAppointmentDescriptor()
 activate EditAppointmentDescriptor
 EditAppointmentDescriptor -> EditAppointmentCommandParser
 

@@ -1,0 +1,11 @@
+@startuml
+
+:User enters the`clear` command;
+
+:Clear Patient List;
+
+:Clear Appointment List;
+
+stop
+
+@enduml

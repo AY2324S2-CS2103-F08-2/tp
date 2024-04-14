@@ -6,7 +6,7 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":ListPatientCommandParser" as ListPatientCommandParser LOGIC_COLOR
-participant ":ListCommandPatient" as ListCommandPatient LOGIC_COLOR
+participant ":ListPatientCommand" as ListPatientCommand LOGIC_COLOR
 participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -14,10 +14,10 @@ box Model MODEL_COLOR_T1
 participant "m:Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("queryp" + " n/Jerome p/123 e/gmail.com a/depression")
+[-> LogicManager : execute(args)
 activate LogicManager
 
-LogicManager -> CommandParser : parseCommand("queryp" + arguments)
+LogicManager -> CommandParser : parseCommand(args)
 activate CommandParser
 
 create ListPatientCommandParser
@@ -27,16 +27,16 @@ activate ListPatientCommandParser
 ListPatientCommandParser --> CommandParser
 deactivate ListPatientCommandParser
 
-CommandParser -> ListPatientCommandParser : parse(arguments)
+CommandParser -> ListPatientCommandParser : parse(args)
 activate ListPatientCommandParser
 
-create ListCommandPatient
-ListPatientCommandParser -> ListCommandPatient :  new ListCommandPatient(combinedPredicate) with AND logic
+create ListPatientCommand
+ListPatientCommandParser -> ListPatientCommand :  ListPatientCommand(pred) with AND logic
 note right of ListPatientCommandParser : Details of how predicates are combined \nare simplified for the sake of diagramming.
-activate ListCommandPatient
+activate ListPatientCommand
 
-ListCommandPatient --> ListPatientCommandParser :
-deactivate ListCommandPatient
+ListPatientCommand --> ListPatientCommandParser :
+deactivate ListPatientCommand
 
 ListPatientCommandParser --> CommandParser : d
 deactivate ListPatientCommandParser
@@ -47,21 +47,21 @@ destroy ListPatientCommandParser
 CommandParser --> LogicManager : d
 deactivate CommandParser
 
-LogicManager -> ListCommandPatient : execute(m)
-activate ListCommandPatient
+LogicManager -> ListPatientCommand : execute(m)
+activate ListPatientCommand
 
-ListCommandPatient -> Model : updateFilteredPersonList(combinedPredicate)
+ListPatientCommand -> Model : updateFilteredPatientList(pred)
 activate Model
 
-Model --> ListCommandPatient
+Model --> ListPatientCommand
 deactivate Model
 
 
 
 
-ListCommandPatient --> LogicManager : command success
-deactivate ListCommandPatient
+ListPatientCommand --> LogicManager : command success
+deactivate ListPatientCommand
 
-[<--LogicManager : command successful
+[<--LogicManager : return filtered patients
 deactivate LogicManager
 @enduml

@@ -15,10 +15,10 @@ box Model MODEL_COLOR_T1
 participant "m:Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("edit"p + "studentId" + " n/Jerome p/123 e/gmail.com a/depression")
+[-> LogicManager : execute(args)
 activate LogicManager
 
-LogicManager -> CommandParser : parseCommand("editp" + "studentId" + arguments)
+LogicManager -> CommandParser : parseCommand(args)
 activate CommandParser
 
 create EditPatientCommandParser
@@ -28,7 +28,7 @@ activate EditPatientCommandParser
 EditPatientCommandParser --> CommandParser
 deactivate EditPatientCommandParser
 
-CommandParser -> EditPatientCommandParser : parse(arguments)
+CommandParser -> EditPatientCommandParser : parse(args)
 activate EditPatientCommandParser
 
 create EditPersonDescriptor
@@ -52,7 +52,7 @@ deactivate EditPatientCommandParser
 CommandParser --> LogicManager : d
 deactivate CommandParser
 
-LogicManager -> EditPatientCommand : execute
+LogicManager -> EditPatientCommand : execute(model)
 activate EditPatientCommand
 
 EditPatientCommand -> Model : updateFilteredPersonList
