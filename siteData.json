@@ -71,7 +71,6 @@
         "non-functional-requirements": "Non-Functional Requirements",
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
-        "manual-testing": "Manual Testing",
         "launch-and-shutdown": "Launch and Shutdown",
         "list-all-students-without-any-parameters": "List all students (without any parameters)",
         "list-all-students-meeting-the-selected-one-or-more-criteria": "List all students meeting the selected (one or more) criteria",
