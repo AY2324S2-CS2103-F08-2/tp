@@ -2,7 +2,7 @@
 !include style.puml
 skinparam ArrowFontStyle plain
 
-box Logic LOGIC_COLOR_T1
+box DeletePatientSequenceDiagram LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":DeletePatientCommandParser" as DeletePatientCommandParser LOGIC_COLOR
@@ -40,6 +40,7 @@ deactivate DeletePatientCommand
 DeletePatientCommandParser --> CommandParser
 deactivate DeletePatientCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
+DeletePatientCommandParser -[hidden]-> CommandParser
 destroy DeletePatientCommandParser
 DeletePatientCommandParser -[hidden]-> CommandParser
 
@@ -49,10 +50,16 @@ deactivate CommandParser
 LogicManager -> DeletePatientCommand : execute(model)
 activate DeletePatientCommand
 
-DeletePatientCommand -> Model : deletePerson()
-Model --> DeletePatientCommand: person to delete
-DeletePatientCommand -> Model : delete appointments related to person
 
+DeletePatientCommand -> Model : deletePerson()
+activate Model
+Model --> DeletePatientCommand
+deactivate Model
+
+
+DeletePatientCommand -> Model : delete appointments related to person
+activate Model
+deactivate Model
 create CommandResult
 DeletePatientCommand -> CommandResult
 activate CommandResult

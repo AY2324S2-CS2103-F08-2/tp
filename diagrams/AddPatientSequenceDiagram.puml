@@ -2,7 +2,7 @@
 !include style.puml
 skinparam ArrowFontStyle plain
 
-box Logic LOGIC_COLOR_T1
+box AddPatientSequenceDiagram LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":AddPatientCommandParser" as AddPatientCommandParser LOGIC_COLOR
@@ -40,13 +40,15 @@ Patient -> AddPatientCommandParser
 
 deactivate Patient
 create AddPatientCommand
-AddPatientCommandParser -> AddPatientCommand : new AddPatientCommand(patient)
+AddPatientCommandParser -> AddPatientCommand : AddPatientCommand()
 activate AddPatientCommand
 AddPatientCommand --> AddPatientCommandParser
 deactivate AddPatientCommand
 
+
 AddPatientCommandParser --> CommandParser : e
 deactivate AddPatientCommandParser
+AddPatientCommandParser -[hidden]-> CommandParser
 destroy AddPatientCommandParser
 
 CommandParser --> LogicManager : e
@@ -57,8 +59,10 @@ activate AddPatientCommand
 
 
 
-AddPatientCommand -> Model : addPatient()
 
+AddPatientCommand -> Model : addPatient()
+activate Model
+deactivate Model
 
 
 

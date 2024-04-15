@@ -2,12 +2,11 @@
 !include style.puml
 skinparam ArrowFontStyle plain
 
-box Logic LOGIC_COLOR_T1
+box QueryPatientSequenceDiagram LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":ListPatientCommandParser" as ListPatientCommandParser LOGIC_COLOR
 participant ":ListPatientCommand" as ListPatientCommand LOGIC_COLOR
-participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -31,26 +30,25 @@ CommandParser -> ListPatientCommandParser : parse(args)
 activate ListPatientCommandParser
 
 create ListPatientCommand
-ListPatientCommandParser -> ListPatientCommand :  ListPatientCommand(pred) with AND logic
-note right of ListPatientCommandParser : Details of how predicates are combined \nare simplified for the sake of diagramming.
+ListPatientCommandParser -> ListPatientCommand
+note left of ListPatientCommandParser : Details of how predicates are combined \nare simplified for the sake of diagramming.
 activate ListPatientCommand
 
 ListPatientCommand --> ListPatientCommandParser :
 deactivate ListPatientCommand
 
-ListPatientCommandParser --> CommandParser : d
+ListPatientCommandParser --> CommandParser
 deactivate ListPatientCommandParser
-'Hidden arrow to position the destroy marker below the end of the activation bar.
 ListPatientCommandParser -[hidden]-> CommandParser
 destroy ListPatientCommandParser
 
-CommandParser --> LogicManager : d
+CommandParser --> LogicManager
 deactivate CommandParser
 
-LogicManager -> ListPatientCommand : execute(m)
+LogicManager -> ListPatientCommand : execute(model)
 activate ListPatientCommand
 
-ListPatientCommand -> Model : updateFilteredPatientList(pred)
+ListPatientCommand -> Model : filter patients
 activate Model
 
 Model --> ListPatientCommand
@@ -59,9 +57,9 @@ deactivate Model
 
 
 
-ListPatientCommand --> LogicManager : command success
+ListPatientCommand --> LogicManager : result
 deactivate ListPatientCommand
 
-[<--LogicManager : return filtered patients
+[<--LogicManager
 deactivate LogicManager
 @enduml

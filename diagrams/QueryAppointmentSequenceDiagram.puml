@@ -37,6 +37,7 @@ deactivate ListAppointmentCommand
 
 ListAppointmentCommandParser --> CommandParser
 deactivate ListAppointmentCommandParser
+ListAppointmentCommandParser -[hidden]-> CommandParser
 destroy ListAppointmentCommandParser
 
 CommandParser --> LogicManager: command

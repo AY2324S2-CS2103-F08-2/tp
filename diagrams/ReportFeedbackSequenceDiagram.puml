@@ -38,6 +38,7 @@ deactivate ReportFeedbackCommand
 
 ReportFeedbackCommandParser --> CommandParser
 deactivate ReportFeedbackCommandParser
+ReportFeedbackCommandParser -[hidden]-> CommandParser
 destroy ReportFeedbackCommandParser
 
 CommandParser --> LogicManager: command

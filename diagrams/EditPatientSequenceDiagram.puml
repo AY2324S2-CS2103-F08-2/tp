@@ -2,13 +2,12 @@
 !include style.puml
 skinparam ArrowFontStyle plain
 
-box Logic LOGIC_COLOR_T1
+box EditPatientSequenceDiagram LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":CommandParser" as CommandParser LOGIC_COLOR
 participant ":EditPatientCommandParser" as EditPatientCommandParser LOGIC_COLOR
 participant ":EditPersonDescriptor" as EditPersonDescriptor LOGIC_COLOR
 participant ":EditPatientCommand" as EditPatientCommand LOGIC_COLOR
-participant "r:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -33,21 +32,23 @@ activate EditPatientCommandParser
 
 create EditPersonDescriptor
 note right of EditPersonDescriptor : Methods in EditPersonDescriptor such as setName and\n setPhone may be used to create a defensive copy \nof the patient that is to be updated.
-EditPatientCommandParser -> EditPersonDescriptor : new EditPersonDescriptor()
+EditPatientCommandParser -> EditPersonDescriptor
 activate EditPersonDescriptor
-EditPersonDescriptor -> EditPatientCommandParser : setup with parsed attributes
+EditPersonDescriptor -> EditPatientCommandParser
 
 deactivate EditPersonDescriptor
 
 ' Now, passing EditPersonDescriptor and studentIndex to EditPatientCommand
 create EditPatientCommand
-EditPatientCommandParser -> EditPatientCommand : new EditPatientCommand(studentIndex, editPersonDescriptor)
+EditPatientCommandParser -> EditPatientCommand
 activate EditPatientCommand
 EditPatientCommand --> EditPatientCommandParser
 deactivate EditPatientCommand
 
 EditPatientCommandParser --> CommandParser : return
 deactivate EditPatientCommandParser
+EditPatientCommandParser -[hidden]-> CommandParser
+destroy EditPatientCommandParser
 
 CommandParser --> LogicManager : d
 deactivate CommandParser
@@ -61,9 +62,8 @@ activate Model
 Model --> EditPatientCommand
 deactivate Model
 
-EditPatientCommand --> LogicManager : command success
+EditPatientCommand --> LogicManager : return updated patient list
 deactivate EditPatientCommand
-destroy EditPatientCommand
 
 [<--LogicManager : command successful
 deactivate LogicManager

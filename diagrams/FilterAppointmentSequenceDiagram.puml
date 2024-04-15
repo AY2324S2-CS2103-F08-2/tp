@@ -44,6 +44,7 @@ deactivate FilterAppointmentCommand
 
 FilterAppointmentParser --> CommandParser: f
 deactivate FilterAppointmentParser
+FilterAppointmentCommandParser -[hidden]-> CommandParser
 destroy FilterAppointmentParser
 
 CommandParser --> LogicManager: f
