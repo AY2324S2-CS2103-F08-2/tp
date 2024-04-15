@@ -599,11 +599,13 @@ navigate through their history of commands to make minor changes. Many features 
 Below is a general user flow of the command history
 <puml src="diagrams/command-history/CommandHistorySequenceDiagram.puml" alt="Command History sequence diagram" />
 
-**Note** 
+<box type="warning" seamless>
 
-that the above diagram doesn't capture the audio playback feature because it's not a core part of the feature.
+**Note:**  The above diagram doesn't capture the audio playback feature because it's not a core part of the feature.
 
-And below are the specific behaviours of the command history module
+</box>
+
+Below are the specific behaviours of the command history module
 
 **Undo**
 
@@ -765,19 +767,27 @@ Priorities: High (must have) - `* * * *`, Medium (nice to have) - `* * *`, Low (
 3. CogniCare saves the new patient information.
 4. CogniCare displays a success message confirming that the new patient has been added.
 
+    Use case ends.
+
 **Extensions**
 
 * 1a. Required fields are left blank, or fields do not meet the specified format.
   * 1a1. CogniCare displays an error message associated with the relevant missing field (i.e. Phone number error message for missing phone number field)
-    Use case ends
+    
+  Use case ends
+
 
 * 2a. Required fields are invalid (i.e. Phone Number does not meet SG format)
   * 2a1. CogniCare displays an error message associated with the relevant erroneous field (i.e. Phone number error message for invalid phone number field)
-    Use case ends
+    
+  Use case ends
   
+
 * 2b. Patient with the same name (regardless of case sensitivity and whitespace) already exists.
   * 2b1. CogniCare alerts the user about the duplicate name and prevents the addition.
+  
   Use case ends.
+
 
 **Use Case: UC02 - Edit a Patient**
 
@@ -785,6 +795,7 @@ Priorities: High (must have) - `* * * *`, Medium (nice to have) - `* * *`, Low (
 1. The user list patients with certain criteria or no criteria.
 2. The user enters a command to add a patient with the required index and data field to be edited.
 3. CogniCare displays a success message confirming the patient's details have been updated.
+
 Use case ends.
 
 
@@ -792,11 +803,15 @@ Use case ends.
 
 * 2a. The patient identifier does not match any patient in the system.
   * 2a1. CogniCare displays an error message that the patient was not found.
+  
   Use case ends.
+
 
 * 3a. Required data fields are left blank or data is in the incorrect format.
   * 3a1. CogniCare displays an error message indicating what needs to be corrected or filled in, including the specific requirements for the phone number and email format.
+  
   Use case ends.
+
 
 **Use case: UC03 - List all / Search for patients meeting selected criteria / criterion**
 
@@ -822,9 +837,11 @@ Use case ends.
 
   Use case ends.
 
+
 * 2a. The list is empty.
 
   Use case ends.
+
 
 **Use case: UC04 - Delete a patient**
 
@@ -833,6 +850,7 @@ Use case ends.
 2. User requests to delete a patient at the given index.
 3. CogniCare deletes the patient.
 4. CogniCare displays a successful message stating that the deletion was successful and displays information of the deleted patient.
+    
     Use case ends.
 
 **Extensions**
@@ -841,6 +859,7 @@ Use case ends.
     * 2a1. CogniCare displays an error message that the index is invalid. (No deletion is done)
 
     Use case ends.
+
 
 * 2b. The patient index is invalid. 
    * 2b1. CogniCare displays an error message that the index is invalid. (No deletion is done)
@@ -855,20 +874,28 @@ Use case ends.
 2. CogniCare validates the information is valid.
 3. CogniCare saves the new appointment information.
 4. CogniCare displays a success message confirming that the new appointment has been added.
+   
+    Use case ends.
 
 **Extensions**
 
 * 1a. Required fields are left blank, or fields do not meet the specified format.
     * 1a1. CogniCare displays an error message associated with the relevant missing field.
+      
       Use case ends
+
 
 * 2a. Required fields are invalid
     * 2a1. CogniCare displays an error message associated with the relevant erroneous field
+      
       Use case ends
+
 
 * 2b. Appointment timing clashes with an existing appointment.
     * 2b1. CogniCare alerts the user about the clash and prevents the addition.
+      
       Use case ends.
+
 
 **Use Case: UC06 - Edit an Appointment**
 
@@ -876,18 +903,22 @@ Use case ends.
 1. The user list appointments with certain criteria or no criteria.
 2. User enters command to edit appointment with required index and data field to be edited.
 3. CogniCare displays a success message confirming the appointment details have been updated.
-   Use case ends.
+   
+    Use case ends.
 
 
 **Extensions**
 
 * 2a. The appointment identifier does not match any appointment in the system.
     * 1a1. CogniCare displays an error message that the appointment was not found.
-      Use case ends.
+      
+    Use case ends.
+
 
 * 3a. Required data fields are left blank or data is in the incorrect format.
     * 2a1. CogniCare displays an error message indicating what needs to be corrected or filled in.
-      Use case ends.
+      
+  Use case ends.
   
 
 **Use case: UC07 - Search appointments**
@@ -907,11 +938,13 @@ Use case ends.
 
   Use case ends.
 
+
 * 1b. The query specifies a prefix, but no value, e.g. `querya n/`.
 
     * 1b1. CogniCare shows an error message.
 
   Use case ends.
+
 
 **Use case: UC08 - Delete a specific appointment**
 
@@ -928,13 +961,15 @@ Use case ends.
 
     * 2a1. CogniCare shows an error message.
     
-  Use case ends.
+      Use case ends.
+
 
 * 2b. The appointment index is invalid.
   
   * 2b1. CogniCare displays an error message that the index is invalid. (No deletion is done)
 
-Use case ends.
+    Use case ends.
+
 
 **Use case: UC09 - Filter appointment in a date time range**
 
@@ -953,11 +988,13 @@ Use case ends.
 
   Use case ends.
 
+
 * 1b. The query has incorrect parameters
 
     * 1b1. CogniCare shows an error message.
 
   Use case ends.
+
 
 * 2a. The list of appointments is empty.
 
@@ -970,28 +1007,31 @@ Use case ends.
 1. User requests to view all feedback scores from a given start date to a given end date
 2. Feedback scores are updated to get the average of all appointments within the given time period
 
-Use case ends.
+    Use case ends.
 
 **Extensions**
 * 1a. User specifies the start date only
   * 1a1. All appointments from the specified start date to the end of time are returned
   
-  Use case resumes from step 2
+    Use case resumes from step 2
+
 
 * 1b. User specifies the end date only
   * 1b1. All appointments from the beginning of time to the specified end date are returned
 
-  Use case resumes from step 2
+    Use case resumes from step 2
+
 
 * 1c. User specifies neither the end or the start date
   * 1c1. All appointments are returned
 
-  Use case resumes from step 2
+    Use case resumes from step 2
+
 
 * 1d. The date specified is in an incorrect format
   * 1d1. Invalid format exception message is shown to the user
 
-  Use case ends
+    Use case ends
 
 **Use case: UC11 - Getting the previous command entered**
 
@@ -1009,12 +1049,14 @@ Use case ends.
 * 2a. User presses the Up arrow key again
     * 2a1. A sound is played indicating that there is no previous command
 
-  Use case resumes from step 3.
+      Use case resumes from step 3.
+
 
 * 3a. User modifies the command, and without executing it, presses the Down arrow key, followed by the Up arrow key
     * 3a1. The command before modification is shown because the modified command is not yet executed
   
-  Use case resumes from step 3
+      Use case resumes from step 3
+
 
 **Use case: UC12 - Getting the next command entered**
 
@@ -1030,7 +1072,7 @@ Use case ends.
 * 3a. User presses the Down arrow key when there is no next command
     * 3a1. An empty string is returned
 
-  Use case ends.
+      Use case ends.
 
 ### Non-Functional Requirements
 
@@ -1054,9 +1096,11 @@ Use case ends.
 
 Given below are instructions to test the app manually.
 
+<box type="warning" seamless>
 
-> **Note:** These instructions only provide a starting point for testers to work on;
-> Testers are expected to do more *exploratory* testing.
+**Note:** These instructions only provide a starting point for testers to work on;<br>
+Testers are expected to do more *exploratory* testing.
+</box>
 
 ### Launch and Shutdown
 1. Ensure you have Java `11` or above installed on your Computer.
@@ -1084,7 +1128,8 @@ Expected Output in the Command Output Box:
 - `Listed all persons`
 
 <box type="tip" seamless>
-If there are no patients stored in the Application, then an empty ListView will be displayed.
+
+**Tip:** If there are no patients stored in the CogniCare application, then an empty ListView will be displayed.
 </box>
 
 
@@ -1109,7 +1154,8 @@ Expected Output in the Command Output Box:
 - `Listed all persons`
 
 <box type="tip" seamless>
-If there are no patients stored in the Application, or if there are no data that meets the required criteria, an empty ListView will be displayed
+
+**Tip:** If there are no patients stored in the Application, or if there are no data that meets the required criteria, an empty ListView will be displayed
 </box>
 
 
@@ -1156,7 +1202,8 @@ Expected Output in the CommandBox: `Edited Person: Bernice Yu; Phone: 91234567; 
 -  The `ListView` will be updated with the latest patient data.
 
 <box type="tip" seamless>
-The patient identifier that is commonly referred to in this article refers to the patient id that is permanently tagged to each patient and is not the index of the natural ordering in the list.
+
+**Tip:** The patient identifier that is commonly referred to in this article refers to the patient id that is permanently tagged to each patient and is not the index of the natural ordering in the list.
 </box>
 
 
@@ -1198,7 +1245,8 @@ Expected Output in the Command Output Box:
 - A message echoing the information that you have just entered.
 
 <box type="tip" seamless>
-The appointment identifier is permanently tagged to the appointment and is not the index of the natural ordering in the list.
+
+**Tip:** The appointment identifier is permanently tagged to the appointment and is not the index of the natural ordering in the list.
 </box>
 
 ### Editing an existing appointment
@@ -1221,8 +1269,10 @@ Expected Output:
 Expected Output in the CommandBox: `Edited Appointment: 3; PatientId: 2; Start: 10 Oct 2021, 12:30 pm; End: 10 Oct 2021, 02:59 pm; Attend: true; Score: 5; Description: Third appointment`
 -  The `ListView` will be updated with the latest appointment data.
 
-> [!REMEMBER]
-> The appointment identifier that is commonly referred to in this article refers to the appointment id that is permanently tagged to each appointment, and is not the index of the natural ordering in the list.
+<box type="warning" seamless>
+
+**Remember:** The appointment identifier that is commonly referred to in this article refers to the appointment id that is permanently tagged to each appointment, and is not the index of the natural ordering in the list.
+</box>
 
 ### Deleting an existing appointment
 Pre-requisite:
@@ -1253,7 +1303,8 @@ Expected Output in the Command Output Box:
 - `Listed all appointments`
 
 <box type="tip" seamless>
-If there are no appointments stored in the Application, then an empty ListView will be displayed.
+
+**Tip:** If there are no appointments stored in the Application, then an empty ListView will be displayed.
 </box>
 
 ### Listing all appointments which meet the selected (one or more) criteria
@@ -1274,7 +1325,8 @@ Expected Output in the Command Output Box:
 - `(n) appointments listed!`
 
 <box type="tip" seamless>
-If there are no appointments stored in the application, or if there are no data that meets the required criteria, an empty ListView will be displayed.
+
+**Tip:** If there are no appointments stored in the application, or if there are no data that meets the required criteria, an empty ListView will be displayed.
 </box>
 
 ### Filtering appointments that fall in a specific date range
@@ -1323,8 +1375,10 @@ Expected Output:
 Expected Output in the Command Output Box:
 - `Generated patient feedback report from 11 Oct 2021 to the end of time`
 
->[!NOTE]
-> The `reportf` command only requires the start and/or end date in the format `yyyy-MM-dd`. This command does not take in any time.
+<box type="warning" seamless>
+
+**Note:** The `reportf` command only requires the start and/or end date in the format `yyyy-MM-dd`. This command does not take in any time.
+</box>
 
 ### Command History
 Pre-requisite:
