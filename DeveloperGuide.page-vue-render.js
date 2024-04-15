@@ -1001,6 +1001,6 @@ with(this){return _c('h2',{attrs:{"id":"acknowledgements"}},[_c('strong',[_v("Ac
 with(this){return _c('p',[_v("Code base adapted from "),_c('a',{attrs:{"href":"https://github.com/nus-cs2103-AY2324S2/tp"}},[_v("Address Book Level-3")]),_v("\nGitHub Copilot was used as an autocomplete tool to assist in writing parts of the documentation and diagrams by @vnnamng, @tankh99.")])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 17:41:59 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 18:37:20 GMT+8]")])])])}
 }];
   
