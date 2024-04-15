@@ -935,7 +935,7 @@ with(this){return _c('p',[_v("Command: "),_c('code',{pre:true,attrs:{"class":"hl
 with(this){return _c('ul',[_c('li',[_v("The patient feedback report information for all appointments will be shown in the item ListView.")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_v("All the patient feedback report information will be displayed in the ListView.")])])}
+with(this){return _c('ul',[_c('li',[_v("Patient feedback reports with information from all appointments will be displayed in the ListView.")])])}
 },function anonymous(
 ) {
 with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("Generated patient feedback report from the beginning of time to the end of time")])])])}
@@ -953,7 +953,7 @@ with(this){return _c('p',[_v("Command: "),_c('code',{pre:true,attrs:{"class":"hl
 with(this){return _c('ul',[_c('li',[_v("The patient feedback report information meeting the criteria specified in CogniCare will be displayed in the item ListView.")]),_v(" "),_c('li',[_v("You may specify zero or one of each parameter\n"),_c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("sd/")]),_v(": start date")]),_v(" "),_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("ed/")]),_v(": end date")])])])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_v("All the patient feedback report information will be displayed in the ListView.")])])}
+with(this){return _c('ul',[_c('li',[_v("Patient feedback reports with information from filtered appointments will be displayed in the ListView.")])])}
 },function anonymous(
 ) {
 with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("Generated patient feedback report from 11 Oct 2021 to the end of time")])])])}
@@ -992,6 +992,6 @@ with(this){return _c('h2',{attrs:{"id":"acknowledgements"}},[_c('strong',[_v("Ac
 with(this){return _c('p',[_v("Code base adapted from "),_c('a',{attrs:{"href":"https://github.com/nus-cs2103-AY2324S2/tp"}},[_v("Address Book Level-3")]),_v("\nGitHub Copilot was used as an autocomplete tool to assist in writing parts of the documentation and diagrams by @vnnamng, @tankh99.")])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 19:41:42 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 20:58:46 GMT+8]")])])])}
 }];
   
