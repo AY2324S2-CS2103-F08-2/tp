@@ -50,7 +50,6 @@
         "common-classes": "Common classes",
         "implementation": "Implementation",
         "appointment": "Appointment",
-        "querying-patients-by-different-parameters": "Querying Patients by different parameters.",
         "adding-a-new-patient": "Adding a New Patient",
         "querying-for-patients": "Querying for Patients",
         "editing-a-current-patient": "Editing a current Patient",
