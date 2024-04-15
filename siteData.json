@@ -73,7 +73,7 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and Shutdown",
         "list-all-students-without-any-parameters": "List all students (without any parameters)",
-        "list-all-students-meeting-the-selected-one-or-more-criteria": "List all students meeting the selected (one or more) criteria",
+        "list-all-patients-meeting-the-selected-one-or-more-criteria": "List all patients meeting the selected (one or more) criteria",
         "adding-a-new-patient-2": "Adding a new patient",
         "editing-a-currently-created-patient": "Editing a currently created patient",
         "deleting-an-existing-patient-2": "Deleting an existing patient",
