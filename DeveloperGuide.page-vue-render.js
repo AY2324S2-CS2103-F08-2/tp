@@ -536,13 +536,13 @@ with(this){return _c('p',[_c('strong',[_v("Use Case: Edit a Patient")])])}
 with(this){return _c('p',[_c('strong',[_v("MSS:")])])}
 },function anonymous(
 ) {
-with(this){return _c('ol',[_c('li',[_v("The user enters a command to add a patient with the required index and data field to be edited.")]),_v(" "),_c('li',[_v("CogniCare displays a success message confirming the patient's details have been updated.\nUse case ends.")])])}
+with(this){return _c('ol',[_c('li',[_v("The user runs the "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("queryp")]),_v(" command to list all patients")]),_v(" "),_c('li',[_v("The user enters a command to add a patient with the required index and data field to be edited.")]),_v(" "),_c('li',[_v("CogniCare displays a success message confirming the patient's details have been updated.\nUse case ends.")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Extensions")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. The patient identifier does not match any patient in the system.")]),_v(" "),_c('ul',[_c('li',[_v("1a1. CogniCare displays an error message that the patient was not found.\nUse case ends.")])])]),_v(" "),_c('li',[_c('p',[_v("2a. Required data fields are left blank or data is in the incorrect format.")]),_v(" "),_c('ul',[_c('li',[_v("2a1. CogniCare displays an error message indicating what needs to be corrected or filled in, including the specific requirements for the phone number and email format.\nUse case ends.")])])])])}
+with(this){return _c('ul',[_c('li',[_c('p',[_v("2a. The patient identifier does not match any patient in the system.")]),_v(" "),_c('ul',[_c('li',[_v("2a1. CogniCare displays an error message that the patient was not found.\nUse case ends.")])])]),_v(" "),_c('li',[_c('p',[_v("3a. Required data fields are left blank or data is in the incorrect format.")]),_v(" "),_c('ul',[_c('li',[_v("3a1. CogniCare displays an error message indicating what needs to be corrected or filled in, including the specific requirements for the phone number and email format.\nUse case ends.")])])])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Use case: List all / Search for patients meeting selected criteria / criterion")])])}
@@ -566,13 +566,13 @@ with(this){return _c('p',[_c('strong',[_v("Use case: Delete a patient")])])}
 with(this){return _c('p',[_c('strong',[_v("MSS:")])])}
 },function anonymous(
 ) {
-with(this){return _c('ol',[_c('li',[_v("User requests to delete a patient at the given index.")]),_v(" "),_c('li',[_v("CogniCare deletes the patient.")]),_v(" "),_c('li',[_v("CogniCare displays a successful message stating that the deletion was successful and displays information of the deleted patient.\nUse case ends.")])])}
+with(this){return _c('ol',[_c('li',[_v("The user runs the "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("queryp")]),_v(" command to list all patients")]),_v(" "),_c('li',[_v("User requests to delete a patient at the given index.")]),_v(" "),_c('li',[_v("CogniCare deletes the patient.")]),_v(" "),_c('li',[_v("CogniCare displays a successful message stating that the deletion was successful and displays information of the deleted patient.\nUse case ends.")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Extensions")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. The query has a missing Id parameter.")]),_v(" "),_c('ul',[_c('li',[_v("1a1. CogniCare displays an error message that the index is invalid. (No deletion is done)")])]),_v(" "),_c('p',[_v("Use case ends.")])]),_v(" "),_c('li',[_c('p',[_v("1b. The patient index is invalid.")]),_v(" "),_c('ul',[_c('li',[_v("1b1. CogniCare displays an error message that the index is invalid. (No deletion is done)")])]),_v(" "),_c('p',[_v("Use case ends.")])])])}
+with(this){return _c('ul',[_c('li',[_c('p',[_v("2a. The query has a missing Id parameter.")]),_v(" "),_c('ul',[_c('li',[_v("2a1. CogniCare displays an error message that the index is invalid. (No deletion is done)")])]),_v(" "),_c('p',[_v("Use case ends.")])]),_v(" "),_c('li',[_c('p',[_v("2b. The patient index is invalid.")]),_v(" "),_c('ul',[_c('li',[_v("2b1. CogniCare displays an error message that the index is invalid. (No deletion is done)")])]),_v(" "),_c('p',[_v("Use case ends.")])])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Use case: Add an Appointment")])])}
@@ -596,13 +596,13 @@ with(this){return _c('p',[_c('strong',[_v("Use Case: Edit an Appointment")])])}
 with(this){return _c('p',[_c('strong',[_v("MSS:")])])}
 },function anonymous(
 ) {
-with(this){return _c('ol',[_c('li',[_v("User enters command to edit appointment with required index and data field to be edited.")]),_v(" "),_c('li',[_v("CogniCare displays a success message confirming the appointment details have been updated.\nUse case ends.")])])}
+with(this){return _c('ol',[_c('li',[_v("The user runs the "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("querya")]),_v(" command to list all appointments.")]),_v(" "),_c('li',[_v("User enters command to edit appointment with required index and data field to be edited.")]),_v(" "),_c('li',[_v("CogniCare displays a success message confirming the appointment details have been updated.\nUse case ends.")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Extensions")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. The appointment identifier does not match any appointment in the system.")]),_v(" "),_c('ul',[_c('li',[_v("1a1. CogniCare displays an error message that the appointment was not found.\nUse case ends.")])])]),_v(" "),_c('li',[_c('p',[_v("2a. Required data fields are left blank or data is in the incorrect format.")]),_v(" "),_c('ul',[_c('li',[_v("2a1. CogniCare displays an error message indicating what needs to be corrected or filled in.\nUse case ends.")])])])])}
+with(this){return _c('ul',[_c('li',[_c('p',[_v("2a. The appointment identifier does not match any appointment in the system.")]),_v(" "),_c('ul',[_c('li',[_v("1a1. CogniCare displays an error message that the appointment was not found.\nUse case ends.")])])]),_v(" "),_c('li',[_c('p',[_v("3a. Required data fields are left blank or data is in the incorrect format.")]),_v(" "),_c('ul',[_c('li',[_v("2a1. CogniCare displays an error message indicating what needs to be corrected or filled in.\nUse case ends.")])])])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Use case: Search appointments")])])}
@@ -626,13 +626,13 @@ with(this){return _c('p',[_c('strong',[_v("Use case: Delete a specific appointme
 with(this){return _c('p',[_c('strong',[_v("MSS:")])])}
 },function anonymous(
 ) {
-with(this){return _c('ol',[_c('li',[_c('p',[_v("User requests to delete an appointment at the given appointment index.")])]),_v(" "),_c('li',[_c('p',[_v("CogniCare deletes the appointment.")]),_v(" "),_c('p',[_v("Use case ends.")])])])}
+with(this){return _c('ol',[_c('li',[_c('p',[_v("The user runs the "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("querya")]),_v(" command to list all appointments.")])]),_v(" "),_c('li',[_c('p',[_v("User requests to delete an appointment at the given appointment index.")])]),_v(" "),_c('li',[_c('p',[_v("CogniCare deletes the appointment.")]),_v(" "),_c('p',[_v("Use case ends.")])])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Extensions")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('p',[_v("1a. The query has missing parameters")]),_v(" "),_c('ul',[_c('li',[_v("1a1. CogniCare shows an error message.")])]),_v(" "),_c('p',[_v("Use case ends.")])]),_v(" "),_c('li',[_c('p',[_v("1b. The appointment index is invalid.")]),_v(" "),_c('ul',[_c('li',[_v("1b1. CogniCare displays an error message that the index is invalid. (No deletion is done)")])])])])}
+with(this){return _c('ul',[_c('li',[_c('p',[_v("2a. The query has missing parameters")]),_v(" "),_c('ul',[_c('li',[_v("2a1. CogniCare shows an error message.")])]),_v(" "),_c('p',[_v("Use case ends.")])]),_v(" "),_c('li',[_c('p',[_v("2b. The appointment index is invalid.")]),_v(" "),_c('ul',[_c('li',[_v("2b1. CogniCare displays an error message that the index is invalid. (No deletion is done)")])])])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Use case: Filter appointment in a date time range")])])}
@@ -1022,6 +1022,6 @@ with(this){return _c('h2',{attrs:{"id":"acknowledgements"}},[_c('strong',[_v("Ac
 with(this){return _c('p',[_v("Code base adapted from "),_c('a',{attrs:{"href":"https://github.com/nus-cs2103-AY2324S2/tp"}},[_v("Address Book Level-3")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 12:40:50 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.4.0")]),_v(", generated on Mon, 15 Apr 2024, 13:08:10 GMT+8]")])])])}
 }];
   
