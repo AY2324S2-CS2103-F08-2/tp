@@ -21,7 +21,7 @@ LogicManager -> CommandParser : parseCommand(args)
 activate CommandParser
 
 create ListAppointmentCommandParser
-CommandParser -> ListAppointmentCommandParser: ListAppointmentCommandParser()
+CommandParser -> ListAppointmentCommandParser
 activate ListAppointmentCommandParser
 
 ListAppointmentCommandParser --> CommandParser
@@ -30,7 +30,7 @@ CommandParser -> ListAppointmentCommandParser : parse(args)
 activate ListAppointmentCommandParser
 
 create ListAppointmentCommand
-ListAppointmentCommandParser -> ListAppointmentCommand: ListAppointmentCommand()
+ListAppointmentCommandParser -> ListAppointmentCommand
 activate ListAppointmentCommand
 ListAppointmentCommand --> ListAppointmentCommandParser
 deactivate ListAppointmentCommand
@@ -39,24 +39,23 @@ ListAppointmentCommandParser --> CommandParser
 deactivate ListAppointmentCommandParser
 destroy ListAppointmentCommandParser
 
-CommandParser --> LogicManager
+CommandParser --> LogicManager: command
 deactivate CommandParser
 LogicManager -> ListAppointmentCommand : execute(model)
 
 activate ListAppointmentCommand
-ListAppointmentCommand -> Model: updateFilteredAppointmentList(pred)
+ListAppointmentCommand -> Model: filter appointment list
 activate Model
 Model --> ListAppointmentCommand
 deactivate Model
 create CommandResult
-ListAppointmentCommand -> CommandResult : CommandResult()
+ListAppointmentCommand -> CommandResult
 activate CommandResult
 CommandResult --> ListAppointmentCommand
 deactivate CommandResult
 
 
-ListAppointmentCommand --> LogicManager
+ListAppointmentCommand --> LogicManager: result
 deactivate ListAppointmentCommand
-destroy ListAppointmentCommand
 [<-- LogicManager : return filtered appointments
 @enduml
