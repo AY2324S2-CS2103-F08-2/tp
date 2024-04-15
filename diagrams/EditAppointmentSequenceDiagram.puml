@@ -34,13 +34,13 @@ CommandParser -> EditAppointmentCommandParser : parse(args)
 activate EditAppointmentCommandParser
 
 create EditAppointmentDescriptor
-EditAppointmentCommandParser -> EditAppointmentDescriptor :  EditAppointmentDescriptor()
+EditAppointmentCommandParser -> EditAppointmentDescriptor
 activate EditAppointmentDescriptor
 EditAppointmentDescriptor -> EditAppointmentCommandParser
 
 deactivate EditAppointmentDescriptor
 create EditAppointmentCommand
-EditAppointmentCommandParser -> EditAppointmentCommand :  EditAppointmentCommand(aid, ead)
+EditAppointmentCommandParser -> EditAppointmentCommand
 activate EditAppointmentCommand
 EditAppointmentCommand --> EditAppointmentCommandParser
 deactivate EditAppointmentCommand
@@ -62,14 +62,14 @@ EditAppointmentCommand -> Model : setAppointment()
 activate Model
 Model --> EditAppointmentCommand
 deactivate Model
-EditAppointmentCommand -> Model : updateFilterAppointmentList()
+EditAppointmentCommand -> Model : filter appointment list
 activate Model
 
 Model --> EditAppointmentCommand
 deactivate Model
 
 create CommandResult
-EditAppointmentCommand -> CommandResult:  CommandResult()
+EditAppointmentCommand -> CommandResult
 activate CommandResult
 CommandResult --> EditAppointmentCommand: r
 deactivate CommandResult

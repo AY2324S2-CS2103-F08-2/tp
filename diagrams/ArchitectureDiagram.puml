@@ -11,6 +11,7 @@ Package " "<<Rectangle>>{
     Class Model MODEL_COLOR
     Class MainApp #grey
     Class MainWindow #grey
+    Class Commons LOGIC_COLOR_T2
 }
 
 Class "<$user>" as User MODEL_COLOR_T2

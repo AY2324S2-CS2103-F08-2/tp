@@ -22,7 +22,7 @@ LogicManager -> CommandParser : parseCommand(args)
 activate CommandParser
 
 create ReportFeedbackCommandParser
-CommandParser -> ReportFeedbackCommandParser: ReportFeedbackCommandParser()
+CommandParser -> ReportFeedbackCommandParser
 activate ReportFeedbackCommandParser
 
 ReportFeedbackCommandParser --> CommandParser
@@ -31,7 +31,7 @@ CommandParser -> ReportFeedbackCommandParser : parse(args)
 activate ReportFeedbackCommandParser
 
 create ReportFeedbackCommand
-ReportFeedbackCommandParser -> ReportFeedbackCommand: ReportFeedbackCommand()
+ReportFeedbackCommandParser -> ReportFeedbackCommand
 activate ReportFeedbackCommand
 ReportFeedbackCommand --> ReportFeedbackCommandParser
 deactivate ReportFeedbackCommand
@@ -40,27 +40,26 @@ ReportFeedbackCommandParser --> CommandParser
 deactivate ReportFeedbackCommandParser
 destroy ReportFeedbackCommandParser
 
-CommandParser --> LogicManager
+CommandParser --> LogicManager: command
 deactivate CommandParser
 LogicManager -> ReportFeedbackCommand : execute(model)
 
 activate ReportFeedbackCommand
-ReportFeedbackCommand -> Model: updateFilteredAppointmentList(pred)
+ReportFeedbackCommand -> Model: filter appointment list
 activate Model
-Model -> PatientReportFeedbackList: generateReportList(patients, appointments)
+Model -> PatientReportFeedbackList: generate report list
 activate PatientReportFeedbackList
 deactivate PatientReportFeedbackList
 Model --> ReportFeedbackCommand
 deactivate Model
 create CommandResult
-ReportFeedbackCommand -> CommandResult : CommandResult()
+ReportFeedbackCommand -> CommandResult
 activate CommandResult
 CommandResult --> ReportFeedbackCommand
 deactivate CommandResult
 
-
-ReportFeedbackCommand --> LogicManager
+ReportFeedbackCommand --> LogicManager: result
 deactivate ReportFeedbackCommand
-destroy ReportFeedbackCommand
+' destroy ReportFeedbackCommand
 [<-- LogicManager : return filtered patient\n feedback reports
 @enduml
