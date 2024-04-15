@@ -47,6 +47,7 @@ deactivate EditAppointmentCommand
 
 EditAppointmentCommandParser --> CommandParser : e
 deactivate EditAppointmentCommandParser
+destroy EditAppointmentCommandParser
 
 CommandParser --> LogicManager : e
 deactivate CommandParser

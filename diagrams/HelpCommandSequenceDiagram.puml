@@ -31,7 +31,6 @@ CommandResult --> HelpCommand
 deactivate CommandResult
 HelpCommand --> LogicManager
 deactivate HelpCommand
-destroy HelpCommand
 
 [<- LogicManager: Execute Command in GUI
 deactivate LogicManager

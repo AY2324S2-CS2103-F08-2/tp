@@ -72,7 +72,6 @@ deactivate Model
 
 FilterAppointmentCommand --> LogicManager: r
 deactivate FilterAppointmentCommand
-destroy FilterAppointmentCommand
 [<-- LogicManager : successfully filter appointment
 deactivate LogicManager
 
